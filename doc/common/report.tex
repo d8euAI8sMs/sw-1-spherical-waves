@@ -1,0 +1,225 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtext}
+\usepackage{newfloat}
+\usepackage{caption}
+\usepackage{indentfirst}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage[titletoc,toc]{appendix}
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.PNG}
+\graphicspath{{./img/}}
+\captionsetup[figure]{justification=centering}
+\renewcommand{\thesubfigure}{\asbuk{subfigure}}
+\DeclareCaptionLabelSeparator{dotseparator}{. }
+\captionsetup{labelsep=dotseparator}
+\geometry{left=1cm,right=2cm,top=2cm,bottom=2cm}
+\makeatletter\appto{\appendices}{\def\Hy@chapapp{Appendix}}\makeatother
+\renewcommand{\appendixtocname}{Приложения}
+\renewcommand{\appendixpagename}{Приложения}
+
+\DeclareMathOperator{\Rot}{\mathbf{rot}}
+\DeclareMathOperator{\Grad}{\mathbf{grad}}
+\DeclareMathOperator{\Div}{\mathbf{div}}
+\newcommand{\V}[1]{\mathbf{#1}}
+
+\title{Математическое приложение}
+\author{Василевский А.В.}
+
+\begin{document}
+
+    \maketitle
+    \tableofcontents
+
+    \appendix
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                           SECTION                                   %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \section{Волновое уравнение}
+
+        Получим стационарные уравнения Максвелла в свободном пространстве для монохроматической волны в нерелятивистском приближении.
+
+        Исходная система уравнений имеет вид
+
+        \begin{equation}\begin{aligned}\label{eq:maxwell_empty_space}
+            \Rot\V{E} &= - \frac{1}{c} \frac{\partial \V{B}}{\partial t}, \\
+            \Rot\V{B} &= \frac{1}{c} \frac{\partial \V{E}}{\partial t}, \\
+            \Div\V{B} &= 0, \\
+            \Div\V{E} &= 0.
+        \end{aligned}\end{equation}
+        %
+        При
+        %
+        \begin{equation}\begin{aligned}
+            \V{E}(\V{r}, t) &= \V{\hat{E}}(\V{r}) \exp(- i \omega t), \\
+            \V{B}(\V{r}, t) &= \V{\hat{B}}(\V{r}) \exp(- i \omega t)
+        \end{aligned}\end{equation}
+        %
+        уравнения принимают вид
+        %
+        \begin{equation}\begin{aligned}
+            \Rot\V{\hat{E}} &= i \omega \frac{1}{c} \V{\hat{B}}, \\
+            \Rot\V{\hat{B}} &= - i \omega \frac{1}{c} \V{\hat{E}}.
+        \end{aligned}\end{equation}
+        %
+        Заметим, что вторые два уравнения удовлетворяются в автоматически. Взятием ротора от первого уравнения и подстановкой в него второго уравнения системы можно получить следующее выражение для вектора $\V{E}$ (аналогичное получается и для $\V{H}$):
+        %
+        \begin{equation}
+            \Rot\Rot{\V{\hat{E}}} = i \omega \frac{1}{c} \left( -i \omega \frac{1}{c} \V{\hat{E}} \right) = \frac{\omega^2}{c^2} \V{\hat{E}}.
+        \end{equation}
+        %
+        Полученное уравнение называется стационарным волновым уравнением.
+
+        Его можно упростить, принимая во внимание вторую пару уравнений \autoref{eq:maxwell_empty_space} и тождество
+        %
+        \begin{equation}\label{eq:laplacian_vect}
+            \Rot\Rot = \Grad\Div - \Delta,
+        \end{equation}
+        %
+        где $\Delta$ -- векторный оператор Лапласа:
+        %
+        \begin{equation}
+            \Delta\V{\hat{E}} = - \frac{\omega^2}{c^2} \V{\hat{E}}.
+        \end{equation}
+
+        В дальнейшем условимся опускать знак \enquote{$\hat{\ }$}, имея в виду именно не зависящую от времени часть $\V{E}$, если не сказано обратного.
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                           SECTION                                   %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \section{Векторный оператор Лапласа в произвольных координатах}
+
+        Ограничимся трехмерным евклидовым пространством. Получим явный инвариантный вид введенного оператора Лапласа. Будем опираться на формулировку \autoref{eq:laplacian_vect}.
+
+        Ротор в криволинейных координатах через ковариантные производные от ковариантных компонент вектора $\V{a}$ представлен в виде
+        %
+        \begin{equation}
+            \left( \Rot\V{a} \right)^i
+                = \frac{1}{2} \varepsilon^{ijk} \left(
+                    \nabla_k a_j - \nabla_j a_k
+                \right)
+                \equiv \varepsilon^{ijk} \nabla_{[k} a_{j]}.
+        \end{equation}
+        %
+        Распишем $\Rot\Rot\V{a}$:
+        %
+        \begin{equation}
+            \left( \Rot\Rot\V{a} \right)^i
+                = \varepsilon^{ijk} \nabla_{[k} \left( \Rot\V{a} \right)_{j]}.
+        \end{equation}
+        %
+        Получим явный вид альтернированной ковариантной производной ротора:
+        %
+        \begin{equation}\begin{aligned}
+            \nabla_{[k} \left( \Rot\V{a} \right)_{j]}
+                &= \nabla_{[k} \left( g_{j]m} \left( \Rot\V{a} \right)^m \right) \\
+                &= g_{[jm} \nabla_{k]} \left( \Rot\V{a} \right)^m \\
+                &= g_{[jm} \nabla_{k]} \left(
+                       \varepsilon^{mqr} \nabla_{[r} a_{q]}
+                \right) \\
+                &= g_{[jm} \varepsilon^{mqr} \left(
+                   \nabla_{k]} \nabla_{[r} a_{q]}
+                \right),
+        \end{aligned}\end{equation}
+        %
+        откуда
+        %
+        \begin{equation}
+            \left( \Rot\Rot\V{a} \right)^i
+                = \varepsilon^{ijk} g_{[jm} \varepsilon^{mqr} \left(
+                    \nabla_{k]} \nabla_{[r} a_{q]}
+                \right).
+        \end{equation}
+        %
+        Распишем произведение перед скобкой, пользуясь тождеством
+        %
+        \begin{equation}
+           \varepsilon_{ijk} \varepsilon^{imn} = \delta_j^m \delta_k^n - \delta_j^n \delta_k^m,
+        \end{equation}
+        %
+        получим
+        %
+        \begin{equation}\begin{aligned}
+           \varepsilon^{ijk} g_{jm} \varepsilon^{mqr}
+                &= \varepsilon^{kij} g_{jm} \varepsilon^{mqr} \\
+                &= g^{ip} g^{ks} \varepsilon_{msp} \varepsilon^{mqr} \\
+                &= g^{ip} g^{ks} \left(
+                    \delta_s^q \delta_p^r - \delta_s^r \delta_p^q
+                \right)
+        \end{aligned}\end{equation}
+        %
+        и аналогично для альтернированного по индексам $[jk]$ варианта
+        %
+        \begin{equation}\begin{aligned}
+           \varepsilon^{ijk} g_{km} \varepsilon^{mqr}
+                &= \varepsilon^{ijk} g_{jm} \varepsilon^{mqr} \\
+                &= g^{ip} g^{js} \varepsilon_{mps} \varepsilon^{mqr} \\
+                &= g^{ip} g^{js} \left(
+                    \delta_p^q \delta_s^r - \delta_p^r \delta_s^q
+                \right) \\
+                &= - g^{ip} g^{js} \left(
+                    \delta_s^q \delta_p^r - \delta_s^r \delta_p^q
+                \right).
+        \end{aligned}\end{equation}
+
+        В итоге, в явном виде ротор ротора перепишется следующим образом:
+        %
+        \begin{equation}\begin{aligned}
+            \left( \Rot\Rot\V{a} \right)^i
+                &= \frac{1}{2} g^{ip} \left\{
+                       g^{ks} \left(
+                           \delta_s^q \delta_p^r - \delta_s^r \delta_p^q
+                       \right) \nabla_k \nabla_{[r} a_{q]} +
+                       g^{js} \left(
+                           \delta_s^q \delta_p^r - \delta_s^r \delta_p^q
+                       \right) \nabla_j \nabla_{[r} a_{q]}
+                   \right\} \\
+                &= g^{ip} \left(
+                       g^{kq} \nabla_k \nabla_{[p} a_{q]} - g^{kr} \nabla_k \nabla_{[r} a_{p]}
+                   \right) \\
+                &= 2 g^{ip} g^{kq} \left(
+                       \nabla_k \nabla_{[p} a_{q]}
+                   \right) \\
+                &= g^{ip} g^{kq} \left(
+                       \nabla_k \nabla_{p} a_{q} - \nabla_k \nabla_{q} a_{p}
+                   \right) \\
+                &= g^{ip} \nabla_k \nabla_{p} a^k - g^{kq} \nabla_k \nabla_{q} a^i \\
+                &= \left( \Grad\Div{\V{a}} - \Delta{\V{a}} \right)^i
+        \end{aligned}\end{equation}
+        %
+        В последней строчке применено свойство перестановочности оператора абсолютного дифференцирования в евклидовом пространстве.
+
+        Итак, мы получили общий вид оператора Лапласа в произвольной системе координат. Выпишем его отдельно:
+        %
+        \begin{equation}
+            \Delta{\V{a}} = g^{kq} \nabla_k \nabla_{q} a^i
+        \end{equation}
+
+\end{document}
