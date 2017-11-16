@@ -446,6 +446,65 @@
     %
     %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                           SECTION                                   %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \section{Коммутационные соотношения операторов Киллинга}
+
+        Найдем коммутационные соотношения внутри и между группами движений евклидова пространства:
+        %
+        \begin{equation}
+            \begin{bmatrix}
+                [ \Op{n}_x \Op{n}_y ] & [ \Op{n}_z \Op{n}_x ] & [ \Op{n}_y \Op{n}_z ] \\
+                [ \Op{l}_x \Op{l}_y ] & [ \Op{l}_z \Op{l}_x ] & [ \Op{l}_y \Op{l}_z ] \\
+                [ \Op{n}_x \Op{l}_x ] & [ \Op{n}_y \Op{l}_x ] & [ \Op{n}_z \Op{l}_x ] \\
+                [ \Op{n}_x \Op{l}_y ] & [ \Op{n}_y \Op{l}_y ] & [ \Op{n}_z \Op{l}_y ] \\
+                [ \Op{n}_x \Op{l}_z ] & [ \Op{n}_y \Op{l}_z ] & [ \Op{n}_z \Op{l}_z ]
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                0          &   0        &   0        \\
+                  \Op{l}_z &   \Op{l}_y &   \Op{l}_x \\
+                0          &   \Op{n}_z & - \Op{n}_y \\
+                - \Op{n}_z &   0        &   \Op{n}_x \\
+                  \Op{n}_y & - \Op{n}_x &   0
+            \end{bmatrix}
+        \end{equation}
+        %
+
+        Полученные коммутаторы инвариантны относительно выбора системы координат.
+
+        Из \autoref{sec:commutators} видно, что операторы сдвигов и вращений коммутируют с оператором Лапласа.
+
+        Составим оператор
+        %
+        \begin{equation}
+            \Op{l}^2 = \Op{l}_x \Op{l}_x + \Op{l}_y \Op{l}_y + \Op{l}_z \Op{l}_z .
+        \end{equation}
+        %
+        Очевидно, он коммутирует с любыми из операторов вращений $\Op{l}_i$, в чем можно убедиться непосредственной проверкой. Также он коммутирует с оператором Лапласа (применено правило Лейбница и тот факт, что оператор Лапласа коммутирует с любыми из операторов поворота):
+        %
+        \begin{equation}\begin{aligned}
+            \left[ \Delta, \Op{l}^2 \right]
+                &= \left[ \Delta, \Op{l}_x \Op{l}_x \right]
+                    + \left[ \Delta, \Op{l}_y \Op{l}_y \right]
+                    + \left[ \Delta, \Op{l}_z \Op{l}_z \right] \\
+                &= \left[ \Delta, \Op{l}_x \right] \Op{l}_x
+                    + \Op{l}_x \left[ \Delta, \Op{l}_x \right]
+                    + \left[ \Delta, \Op{l}_y \right] \Op{l}_y
+                    + \Op{l}_y \left[ \Delta, \Op{l}_y \right]
+                    + \left[ \Delta, \Op{l}_z \right] \Op{l}_z
+                    + \Op{l}_z \left[ \Delta, \Op{l}_z \right] \\
+                &= 0
+        \end{aligned}\end{equation}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %                        BIBLIOGRAPHY                                 %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %
