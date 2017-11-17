@@ -505,6 +505,79 @@
     %
     %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                           SECTION                                   %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \section{Поля Киллинга в сферической системе координат}
+
+        Из инвариантности объекта \enquote{вектор}, задающего направление Ли-вариации, следует, что поля Киллинга, найденные в одной системе координат, останутся полями Киллинга и в другой системе координат. Найдем векторы Киллинга в сферической координатной системе с метрикой
+        %
+        \begin{equation}
+            dl^2 = dr^2 + r^2 (d\theta^2 + \sin ^2 \theta d\varphi^2)
+        \end{equation}
+        %
+        и связью между координатами декартовой и сферической системами координат
+        %
+        \begin{equation}
+            \V{x}(r, \theta, \varphi)
+            =
+            \{x^i\}
+            =
+            \begin{bmatrix}
+                x \\ y \\ z
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                r \sin\theta \cos\varphi \\
+                r \sin\theta \sin\varphi \\
+                r \cos\theta
+            \end{bmatrix}
+            .
+        \end{equation}
+        %
+        Для чего перейдем к новой системе координат:
+        %
+        \begin{equation}\begin{aligned}
+            \xi_{i'} = \frac{\partial x^j}{\partial x^{i'}} \xi_j.
+        \end{aligned}\end{equation}
+        %
+        Проведенные вычисления дают
+        %
+        \begin{equation}
+            \{\V{n}^i_j\}
+            =
+            \begin{bmatrix}
+                \sin\theta \cos\varphi     & \sin\theta \sin\varphi   & \cos\theta \\
+                r \cos\theta \cos\varphi   & r \cos\theta \sin\varphi & - r \sin\theta \\
+                - r \sin\theta \sin\varphi & r \sin\theta \cos\varphi & 0
+            \end{bmatrix}
+            ,
+        \end{equation}
+        %
+        \begin{equation}
+            \{\V{l}^i_j\}
+            =
+            \begin{bmatrix}
+                0
+                    & 0
+                    & 0 \\
+                r^2 \sin\varphi
+                    & - r^2 \cos\varphi
+                    & 0 \\
+                r^2 \cos\varphi \cos\theta \sin\theta
+                    & r^2 \sin\varphi \cos\theta \sin\theta
+                    & - r^2 \sin^2\theta
+            \end{bmatrix}
+            .
+        \end{equation}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %                        BIBLIOGRAPHY                                 %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %
