@@ -299,6 +299,19 @@
         %
         Этим вводится понятие коммутатора двух векторных полей (Ли-коммутатор, скобка Ли).
 
+        В приведенных выше выражениях абсолютная производная $\nabla_k$ может быть заменена на частную $\pdv*{x^k}$. Действительно, для один раз контравариантного тензора
+        %
+        \begin{equation}\begin{aligned}
+            \qty[\xi, \eta]^a
+                &= \xi^c \nabla_c \eta^a - \eta^c \nabla_{c} \xi^a \\
+                &= \xi^c \qty( \pdv{\eta^a}{x^c} + \Gamma_{cp}^a \eta^p )
+                    - \eta^c \qty( \pdv{\xi^a}{x^c} + \Gamma_{cp}^a \xi^p ) \\
+                &= \xi^c \pdv{\eta^a}{x^c} - \eta^c \pdv{\xi^a}{x^c}
+                    + \qty( \xi^c \eta^p \Gamma_{cp}^a - \eta^c \xi^p \Gamma_{cp}^a ) .
+        \end{aligned}\end{equation}
+        %
+        Последняя скобка обращается в нуль после замены во втором слагаемом $c \leftrightarrow p$ ввиду симметрии связности по нижним индексам: $\Gamma_{cp}^a = \Gamma_{pc}^a$.
+
         Векторные поля, на которых Ли-вариация метрического тензора равна нулю, называются движениями, или полями Киллинга:
         %
         \begin{equation}\begin{aligned}
