@@ -1,42 +1,7 @@
 \documentclass[12pt,a4paper]{article}
-\usepackage[T1,T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[english,russian]{babel}
-\usepackage{microtype}
-\usepackage{csquotes}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{mathtext}
-\usepackage{physics}
-\usepackage{newfloat}
-\usepackage{caption}
-\usepackage{indentfirst}
-\usepackage{geometry}
-\usepackage{hyperref}
-\usepackage{mdframed}
-\usepackage[inline]{enumitem}
-\usepackage{graphicx}
-\usepackage{subfig}
-\usepackage[titletoc,toc]{appendix}
 
-\DeclareGraphicsExtensions{.pdf,.png,.jpg,.PNG}
-\graphicspath{{./img/}}
-\captionsetup[figure]{justification=centering}
-\renewcommand{\thesubfigure}{\asbuk{subfigure}}
-\DeclareCaptionLabelSeparator{dotseparator}{. }
-\captionsetup{labelsep=dotseparator}
-\geometry{left=1cm,right=2cm,top=2cm,bottom=2cm}
-\makeatletter\appto{\appendices}{\def\Hy@chapapp{Appendix}}\makeatother
-\renewcommand{\appendixtocname}{Приложения}
-\renewcommand{\appendixpagename}{Приложения}
-
-\DeclareMathOperator{\Rot}{\mathbf{rot}}
-\DeclareMathOperator{\Grad}{\mathbf{grad}}
-\DeclareMathOperator{\Div}{\mathbf{div}}
-\DeclareMathOperator{\D}{D}
-\newcommand{\V}[1]{\mathbf{#1}}
-\newcommand{\Op}[1]{\hat{\V{#1}}}
+\input{../../lib/doc/pkg/common}
+\input{../../lib/doc/math/operators}
 
 \title{Математическое приложение}
 \author{Василевский А.В.}
