@@ -159,8 +159,8 @@ MatrixForm /@ (Killing /@ killingSpher)
 
 udzDec =
 {
-	lDec[[1]] + I lDec[[2]], (* up *)
-	lDec[[1]] - I lDec[[2]], (* down *)
+	lDec[[1]] - I lDec[[2]], (* up *)
+	lDec[[1]] + I lDec[[2]], (* down *)
 	lDec[[3]] (* z *)
 };
 
@@ -177,8 +177,8 @@ MatrixForm /@ (Killing /@ udzDec)
 
 udzSpher =
 {
-	lSpher[[1]] + I lSpher[[2]], (* up *)
-	lSpher[[1]] - I lSpher[[2]], (* down *)
+	lSpher[[1]] - I lSpher[[2]], (* up *)
+	lSpher[[1]] + I lSpher[[2]], (* down *)
 	lSpher[[3]] (* z *)
 };
 
