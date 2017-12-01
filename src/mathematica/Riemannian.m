@@ -349,12 +349,26 @@ angleModePlots = Table[
 				If[EvenQ[l - 1], angleModes[[l, m]], { angleModes[[l, m]], - angleModes[[l, m]]}]
 			],
 			{u, 0, Pi}, {w, 0, 2Pi},
-			PlotRange->Full
-		]
-		,
+			PlotRange -> Full,
+			Boxed -> False,
+			Axes -> False,
+			Mesh -> None
+		],
 		{m, Length[angleModes[[l]]]}
 	],
 	{l, Length[angleModes]}
 ];
 
-angleModePlots // TableForm
+angleModePlotsTable = TableForm[
+	angleModePlots,
+	TableHeadings ->
+	{
+		Table[StringForm["l = ``", l - 1], {l, Length[angleModes]}],
+		Table[StringForm["m = ``", m - 1], {m, Length[angleModes]}]
+	},
+	TableAlignments -> Center
+];
+
+angleModePlotsTable
+
+Export[FileNameJoin[{NotebookDirectory[], "angle_modes.png"}], angleModePlotsTable, Background -> None];
