@@ -315,23 +315,84 @@
         Сложим первое и второе уравнения, третье вычтем. Получим
         %
         \begin{equation}\begin{aligned}
-            \nabla_c \nabla_{(a} \xi_{b)} +
+            \nabla_c \nabla_{(a} \xi_{b)} &+
             \nabla_a \nabla_{(b} \xi_{c)} -
-            \nabla_b \nabla_{(c} \xi_{a)} =
-            2 \nabla_a \nabla_b \xi_c     = 0,
+            \nabla_b \nabla_{(c} \xi_{a)} \\
+                &=  \qty( \nabla_c \nabla_a + \nabla_a \nabla_c ) \xi_b +
+                    \qty( \nabla_c \nabla_b - \nabla_b \nabla_c ) \xi_a +
+                    \qty( \nabla_a \nabla_b - \nabla_b \nabla_a ) \xi_c \\
+                &= 2 \nabla_a \nabla_c \xi_b + \qty(
+                    R_{cab}^{\hphantom{cab}q} +
+                    R_{cba}^{\hphantom{cba}q} +
+                    R_{abc}^{\hphantom{abc}q}
+                ) \xi_q \\
+                &= 0 .
         \end{aligned}\end{equation}
         %
-        откуда получаем систему уравнений на векторы Киллинга:
+        Применяя тождество Бьянки,
         %
         \begin{equation}
-            \nabla_a \nabla_b \xi_c = 0.
+            R_{abcd} + R_{acdb} + R_{adbc} = 0,
         \end{equation}
         %
-        Полученное выражение очень похоже на требование равенства нулю оператора Лапласа $\Delta \equiv g^{ab} \nabla_a \nabla_b$, но отличается от него отсутствием свертки с метрическим тензором, что \enquote{поправимо} путем искусственной свертки данного уравнения с метрическим тензором. Отсюда видно, что, в частности, векторы Киллинга являются также и решениями однородного уравнения Лапласа.
+        а также правила перестановки индексов тензора кривизны,
+        %
+        \begin{equation}\begin{aligned}
+            R_{ab,cd} &= - R_{ba,cd} = - R_{ab,dc}, \\
+            R_{ab,cd} &= - R_{cd,ab}, \\
+        \end{aligned}\end{equation}
+        %
+        получим в скобках:
+        %
+        \begin{equation}\begin{aligned}
+            R_{cab}^{\hphantom{cab}q} +
+            R_{cba}^{\hphantom{cba}q} +
+            R_{abc}^{\hphantom{abc}q}
+                &= g^{qd} \qty(
+                    R_{cabd} + R_{cbad} + R_{abcd}
+                ) \\
+                &= g^{qd} \qty(
+                    R_{acdb} - R_{adbc} + R_{abcd}
+                ) \\
+                &= g^{qd} \qty(
+                    - 2 R_{adbc} + \qty{ R_{acdb} + R_{adbc} + R_{abcd} }
+                ) \\
+                &= - 2 g^{qd} R_{adbc} \\
+                &= - 2 g^{qd} R_{bcad} \\
+                &= - 2 R_{bca}^{\hphantom{bca}d} ,
+        \end{aligned}\end{equation}
+        %
+        откуда окончательно получаем систему уравнений на векторы Киллинга:
+        %
+        \begin{equation}\label{eq:killing_eq}
+            \nabla_a \nabla_b \xi_c = - R_{cba}^{\hphantom{cba}q} \xi_q .
+        \end{equation}
 
-        Дальнейшие выкладки приобретают громоздкий характер в случае произвольных связностей, так что пока мы ограничимся решением полученного уравнения в аффинных (декартовых) координатах, где все связности равны нулю, а метрический тензор диагонален.
+        Сделаем еще один шаг. Свернем полученное выражение с метрическим тензором $g^{ab}$:
+        %
+        \begin{equation}\begin{aligned}
+            g^{ab} \nabla_a \nabla_b \xi_c
+                &= - g^{ab} R_{cba}^{\hphantom{cba}q} \xi_q \\
+                &= - g^{ab} R_{cbaq} \xi^q \\
+                &= - g^{ab} R_{bcqa} \xi^q \\
+                &= - R_{bcq}^{\hphantom{bcq}b} \xi^q \\
+                &= - R_{cq} \xi^q .
+        \end{aligned}\end{equation}
+        %
+        Перейдем к единообразной записи в контравариантном виде, подняв индекс у $\xi_c$:
+        %
+        \begin{equation}\begin{aligned}\label{eq:killing_eq_lap}
+            g^{ab} \nabla_a \nabla_b \xi^c
+                &\equiv \nabla^i \nabla_i \xi^c
+                &\equiv \Delta \xi^c
+                &= - R^c_q \xi^q .
+        \end{aligned}\end{equation}
+        %
+        Данное соотношение будет полезно при последующих доказательствах.
 
-        В этом случае ковариантные производные переходят в частные, и мы получаем уравнения на векторы Киллинга в более простой форме:
+        Нас интересует решение \autoref{eq:killing_eq} в евклидовом пространстве. Дальнейшие выкладки приобретают громоздкий характер в случае произвольных связностей, так что пока мы ограничимся решением полученного уравнения в аффинных (декартовых) координатах, где все связности равны нулю, а метрический тензор диагонален.
+
+        В описанном случае ковариантные производные переходят в частные, тензор кривизны обращается в нуль, и мы получаем уравнения на векторы Киллинга в более простой форме:
         %
         \begin{equation}
             \frac{\partial^2 \xi_c}{\partial x^a \partial x^b} = 0,
