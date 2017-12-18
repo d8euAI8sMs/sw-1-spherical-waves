@@ -287,6 +287,8 @@
                 &= 2 \nabla_{(a} \xi_{b)}.
         \end{aligned}\end{equation}
 
+        Ли-вариация $\delta_\xi$ на поле Киллинга $\xi$ называется оператором Киллинга и обозначается для краткости $\Op{\xi}$.
+
         Найдем векторы Киллинга трехмерного евклидова пространства. Запишем условие инвариантности метрики:
         %
         \begin{equation}
@@ -428,6 +430,67 @@
                         + \xi^i \eta^j (\partial_i \partial_j - \partial_j \partial_i) \tau \\
                     &= \left[ \xi, \eta \right]^j \partial_j \tau .
             \end{aligned}\end{equation}
+
+        \subsection{Коммутация операторов Киллинга между собой и с дифференциальными операторами первого порядка}
+
+            Покажем на примере векторного поля, что для коммутации операторов Киллинга необходимо, чтобы порождающие их векторные поля Киллинга коммутировали. Для этого представим оператор Киллинга в виде двух операторов:
+            %
+            \begin{equation}\begin{aligned}
+                \Op{\xi} a^k
+                    &= \xi^c \nabla_c a^k - a^c \nabla_c \xi^k \\
+                    &= \qty(\D_\xi - \D^{*}_\xi) a^k .
+            \end{aligned}\end{equation}
+            %
+            Раскроем коммутатор по правилу Лейбница:
+            %
+            \begin{equation}\begin{aligned}
+                \comm{\Op{\xi}}{\Op{\eta}} a^k
+                    &= \comm{\D_\xi - \D^{*}_\xi}{\D_\eta - \D^{*}_\eta} a^k \\
+                    &= \comm{\D_\xi}{\D_\eta}  a^k
+                     + \comm{\D^{*}_\xi}{\D^{*}_\eta} a^k
+                     - \comm{\D^{*}_\xi}{\D_\eta} a^k
+                     - \comm{\D_\xi}{\D^{*}_\eta} a^k .
+            \end{aligned}\end{equation}
+            %
+            Первый коммутатор равен нулю, когда векторные поля $\xi$ и $\eta$ коммутируют (рассматривается неискривленное пространство). Несложно показать, что последние два коммутатора равны нулю на полях Киллинга. Действительно,
+            %
+            \begin{equation}\begin{aligned}
+                \comm{\D^{*}_\xi}{\D_\eta} a^k
+                    &= \D^{*}_\xi \D_\eta a^k - \D_\eta \D^{*}_\xi a^k \\
+                    &= \D^{*}_\xi \qty( \eta^c \nabla_c a^k )
+                     - \D_\eta \qty( a^c \nabla_c \xi^k ) \\
+                    &= \qty( \eta^c \nabla_c a^d ) \nabla_d \xi^d
+                     - \eta^d \nabla_d \qty( a^c \nabla_c \xi^k ) \\
+                    &= \qty( \eta^c \nabla_c a^d ) \nabla_d \xi^d
+                     - \qty( \eta^d \nabla_d a^c ) \nabla_c \xi^k
+                     - \eta^d a^c \nabla_d \nabla_c \xi^k \\
+                    &= 0 .
+            \end{aligned}\end{equation}
+            %
+            Второй коммутатор также равен нулю на коммутирующих полях Киллинга:
+            %
+            \begin{equation}\begin{aligned}
+                \comm{\D^{*}_\xi}{\D^{*}_\eta} a^k
+                    &= \D^{*}_\xi \D^{*}_\eta a^k - \D^{*}_\eta \D^{*}_\xi a^k \\
+                    &= \D^{*}_\xi \qty( a^c \nabla_c \eta^k )
+                     - \D^{*}_\eta \qty( a^c \nabla_c \xi^k ) \\
+                    &= \qty( a^c \nabla_c \eta^d ) \nabla_d \xi^k
+                     - \qty( a^c \nabla_c \xi^d ) \nabla_d \eta^k \\
+                    &= a^c \qty{
+                        \nabla_c \qty( \eta^d \nabla_d \xi^k - \xi^d \nabla_d \eta^k ) -
+                        \qty( \eta^d \nabla_c \nabla_d \xi^k - \xi^d \nabla_c \nabla_d \eta^k )
+                    } \\
+                    &= 0 .
+            \end{aligned}\end{equation}
+
+            Исходя из этого, формулируются два предложения.
+            %
+            \begin{enumerate}[noitemsep]
+                \item Два оператора Киллинга коммутируют, если коммутируют порождающие их векторные поля.
+                \item Дифференциальный оператор первого порядка коммутирует с оператором Киллинга, если он также порожден полем Киллинга, и эти поля коммутируют.
+            \end{enumerate}
+            %
+            Эти предложения также остаются справедливыми \cite{burlankov_space_dynamics}, если рассматривать операторы Киллинга на полях произвольной тензорной размерности.
 
     %
     %
