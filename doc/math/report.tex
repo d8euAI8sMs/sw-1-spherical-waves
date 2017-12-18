@@ -247,24 +247,24 @@
         %
         \begin{equation}\begin{aligned}
             \delta_\xi {T^{a_1 \dots a_p}}_{b_1 \dots b_q}
-                &= \xi^c \left( \nabla_c {T^{a_i \dots a_p}}_{b_1 \dots b_q} \right) \\
-                &- \left( \nabla_{c} \xi^{a_1} \right) {T^{c a_2 \dots a_p}}_{b_1 \dots b_q} - \dots
-                 - \left( \nabla_{c} \xi^{a_p} \right) {T^{a_1 \dots a_{p-1} c}}_{b_1 \dots b_q} \\
-                &+ \left( \nabla_{b_1} \xi^c \right) {T^{a_1 \dots a_p}}_{c b_2 \dots b_q} + \dots
-                 + \left( \nabla_{b_q} \xi^c \right) {T^{a_1 \dots a_p}}_{b_1 \dots b_{q-1} c}
+                &= \xi^c \left( \partial_c {T^{a_i \dots a_p}}_{b_1 \dots b_q} \right) \\
+                &- \left( \partial_{c} \xi^{a_1} \right) {T^{c a_2 \dots a_p}}_{b_1 \dots b_q} - \dots
+                 - \left( \partial_{c} \xi^{a_p} \right) {T^{a_1 \dots a_{p-1} c}}_{b_1 \dots b_q} \\
+                &+ \left( \partial_{b_1} \xi^c \right) {T^{a_1 \dots a_p}}_{c b_2 \dots b_q} + \dots
+                 + \left( \partial_{b_q} \xi^c \right) {T^{a_1 \dots a_p}}_{b_1 \dots b_{q-1} c} ,
         \end{aligned}\end{equation}
         %
-        В частности, для векторных полей справедливо
+        где введено $\partial_k = \pdv*{x^k}$. В частности, для векторных полей справедливо
         %
         \begin{equation}\begin{aligned}\label{eq:vector_field_commutator}
             \delta_\xi T^a
-                = \xi^c \nabla_c T^a - T^c \nabla_{c} \xi^a
+                = \xi^c \partial_c T^a - T^c \partial_{c} \xi^a
                 \equiv [\xi, T]^a.
         \end{aligned}\end{equation}
         %
         Этим вводится понятие коммутатора двух векторных полей (Ли-коммутатор, скобка Ли).
 
-        В приведенных выше выражениях абсолютная производная $\nabla_k$ может быть заменена на частную $\pdv*{x^k}$. Действительно, для один раз контравариантного тензора
+        В приведенных выше выражениях в пространствах с линейной связностью частная производная $\partial_k$ может быть заменена на абсолютную (ковариантную) $\nabla_k$. Действительно, для один раз контравариантного тензора
         %
         \begin{equation}\begin{aligned}
             \qty[\xi, \eta]^a
