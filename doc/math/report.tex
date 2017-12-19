@@ -459,7 +459,7 @@
 
         Коммутация операторов влечет простые следствия -- у коммутирующих операторов собственные функции являются общими, что позволяет разбить задачу поиска собственных функций оператора высокого порядка на ряд задач поиска собственных функций операторов меньших порядков.
 
-        Рассмотрим несколько важных случаев.
+        Рассмотрим несколько важных случаев. Поскольку нам важны векторные поля, все выкладки будем проделывать применительно к ним, если особо не оговорено иного.
 
         \subsection{Коммутация оператора Лапласа с дифференциальными операторами первого порядка в случае скалярных полей}
 
@@ -470,27 +470,29 @@
             Для дифференциальных операторов первого порядка получаем:
             %
             \begin{equation}\begin{aligned}
-                \left[ \D_\xi, \D_\eta \right] \tau
-                    &= (\xi^i \nabla_i \eta^j - \eta^i \nabla_i \xi^j) \circ \nabla_j \tau \\
-                    &= (\xi^i \nabla_i \eta^j - \eta^i \nabla_i \xi^j) \nabla_j \tau
-                        + \xi^i \eta^j (\nabla_i \nabla_j - \nabla_j \nabla_i) \tau \\
-                    &= \left[ \xi, \eta \right]^j \nabla_j \tau
-                        + \xi^i \eta^j (\nabla_i \nabla_j - \nabla_j \nabla_i) \tau
+                \left[ \D_\xi, \D_\eta \right] a^k
+                    &= (\xi^i \nabla_i \eta^j - \eta^i \nabla_i \xi^j) \circ \nabla_j a^k \\
+                    &= (\xi^i \nabla_i \eta^j - \eta^i \nabla_i \xi^j) \nabla_j a^k
+                        + \xi^i \eta^j (\nabla_i \nabla_j - \nabla_j \nabla_i) a^k \\
+                    &= \left[ \xi, \eta \right]^j \nabla_j a^k
+                        + \xi^i \eta^j R_{ijq}^{\hphantom{ijqk}} a^q
             \end{aligned}\end{equation}
             %
             С помощью \enquote{$\circ$} явно подчеркнут операторный характер выражения в скобках. Коммутатор векторных полей понимается в смысле \autoref{eq:vector_field_commutator}.
 
-            При наличии кривизны пространства ($\nabla_i \nabla_j - \nabla_j \nabla_i \neq 0$) условие их коммутации приобретает сложный характер. В неискривленном пространстве операторы коммутируют, если коммутируют порождающие их векторные поля. Из этого также следует, что коммутатор двух дифференциальных операторов первого порядка является оператором, порожденным коммутатором порождающих их векторных полей. Он также является дифференциальным оператором первого порядка.
+            Таким образом, в общем случае ковариантные дифференциальные операторы первого порядка не коммутируют. Их коммутатор имеет наиболее простой вид, если порождающие их векторные поля коммутируют в смысле \autoref{eq:vector_field_commutator}. Если кроме этого тензор кривизны всюду в пространстве равен нулевому тензору, операторы первого порядка коммутируют.
 
             Более простое выражение получается для коммутатора производных по направлению первого порядка:
             %
             \begin{equation}\begin{aligned}
-                \left[ \partial_\xi, \partial_\eta \right] \tau
-                    &= (\xi^i \partial_i \eta^j - \eta^i \partial_i \xi^j) \circ \partial_j \tau \\
-                    &= (\xi^i \partial_i \eta^j - \eta^i \partial_i \xi^j) \partial_j \tau
-                        + \xi^i \eta^j (\partial_i \partial_j - \partial_j \partial_i) \tau \\
-                    &= \left[ \xi, \eta \right]^j \partial_j \tau .
+                \left[ \partial_\xi, \partial_\eta \right] a^q
+                    &= (\xi^i \partial_i \eta^j - \eta^i \partial_i \xi^j) \circ \partial_j a^q \\
+                    &= (\xi^i \partial_i \eta^j - \eta^i \partial_i \xi^j) \partial_j a^q
+                        + \xi^i \eta^j (\partial_i \partial_j - \partial_j \partial_i) a^q \\
+                    &= \left[ \xi, \eta \right]^j \partial_j a^q .
             \end{aligned}\end{equation}
+            %
+            Как и следовало ожидать, полученное выражение не зависит от кривизны пространства, поскольку характеристики пространства при \enquote{обычном} дифференцировании не учитываются.
 
         \subsection{Коммутация операторов Киллинга между собой и с дифференциальными операторами первого порядка}
 
@@ -507,13 +509,15 @@
             \begin{equation}\begin{aligned}
                 \comm{\Op{\xi}}{\Op{\eta}} a^k
                     &= \comm{\D_\xi - \D^{*}_\xi}{\D_\eta - \D^{*}_\eta} a^k \\
-                    &= \comm{\D_\xi}{\D_\eta}  a^k
+                    &= \comm{\D_\xi}{\D_\eta} a^k
                      + \comm{\D^{*}_\xi}{\D^{*}_\eta} a^k
                      - \comm{\D^{*}_\xi}{\D_\eta} a^k
                      - \comm{\D_\xi}{\D^{*}_\eta} a^k .
             \end{aligned}\end{equation}
             %
-            Первый коммутатор равен нулю, когда векторные поля $\xi$ и $\eta$ коммутируют (рассматривается неискривленное пространство). Несложно показать, что последние два коммутатора равны нулю на полях Киллинга. Действительно,
+            При вычислении коммутаторов для сокращения объема выкладок сразу будем полагать, что $\comm{\xi}{\eta} = 0$.
+
+            Выражение для первого коммутатора было получено выше, поэтому раскроем следующий коммутатор:
             %
             \begin{equation}\begin{aligned}
                 \comm{\D^{*}_\xi}{\D_\eta} a^k
@@ -525,10 +529,17 @@
                     &= \qty( \eta^c \nabla_c a^d ) \nabla_d \xi^k
                      - \qty( \eta^d \nabla_d a^c ) \nabla_c \xi^k
                      - \eta^d a^c \nabla_d \nabla_c \xi^k \\
-                    &= 0 .
+                    &= - \eta^d a^c \nabla_d \nabla_c \xi^k .
             \end{aligned}\end{equation}
             %
-            Второй коммутатор также равен нулю на коммутирующих полях Киллинга:
+            Аналогично,
+            %
+            \begin{equation}\begin{aligned}
+                \comm{\D_\xi}{\D^{*}_\eta} a^k
+                    &= \xi^d a^c \nabla_d \nabla_c \eta^k .
+            \end{aligned}\end{equation}
+            %
+            Наконец,
             %
             \begin{equation}\begin{aligned}
                 \comm{\D^{*}_\xi}{\D^{*}_\eta} a^k
@@ -541,17 +552,35 @@
                         \nabla_c \qty( \eta^d \nabla_d \xi^k - \xi^d \nabla_d \eta^k ) -
                         \qty( \eta^d \nabla_c \nabla_d \xi^k - \xi^d \nabla_c \nabla_d \eta^k )
                     } \\
+                    &= - \eta^d a^c \nabla_c \nabla_d \xi^k + \xi^d a^c \nabla_c \nabla_d \eta^k .
+            \end{aligned}\end{equation}
+            %
+            Теперь, соединяя все воедино, получим:
+            %
+            \begin{equation}\begin{aligned}
+                \comm{\Op{\xi}}{\Op{\eta}} a^k
+                    &= \comm{\D_\xi}{\D_\eta} a^k
+                     + \comm{\D^{*}_\xi}{\D^{*}_\eta} a^k
+                     - \comm{\D^{*}_\xi}{\D_\eta} a^k
+                     - \comm{\D_\xi}{\D^{*}_\eta} a^k \\
+                    &= \xi^c \eta^d R_{cda}^{\hphantom{cdak}} a^a
+                     - \eta^d a^c \nabla_c \nabla_d \xi^k
+                     + \xi^d a^c \nabla_c \nabla_d \eta^k
+                     + \eta^d a^c \nabla_d \nabla_c \xi^k
+                     - \xi^d a^c \nabla_d \nabla_c \eta^k \\
+                    &= \xi^c \eta^d a^a R_{cda}^{\hphantom{cdak}}
+                     - \xi^a \eta^d a^c R_{cda}^{\hphantom{cdak}}
+                     + \xi^d \eta^a a^c R_{cda}^{\hphantom{cdak}} \\
+                    &= \xi^c \eta^d a^a g^{kb} \qty(
+                        R_{cdab} - R_{adcb} + R_{acdb}
+                    ) \\
+                    &= \xi^c \eta^d a^a g^{kb} \qty(
+                        R_{abcd} + R_{adbc} + R_{acdb}
+                    ) \\
                     &= 0 .
             \end{aligned}\end{equation}
 
-            Исходя из этого, формулируются два предложения.
-            %
-            \begin{enumerate}[noitemsep]
-                \item Два оператора Киллинга коммутируют, если коммутируют порождающие их векторные поля.
-                \item Дифференциальный оператор первого порядка коммутирует с оператором Киллинга, если он также порожден полем Киллинга, и эти поля коммутируют.
-            \end{enumerate}
-            %
-            Эти предложения также остаются справедливыми \cite{burlankov_space_dynamics}, если рассматривать операторы Киллинга на полях произвольной тензорной размерности.
+            Исходя из этого, формулируется предложение: два оператора Киллинга коммутируют, если коммутируют порождающие их векторные поля. Это предложение также остается справедливым \cite{burlankov_space_dynamics}, если рассматривать операторы Киллинга на полях произвольной тензорной размерности.
 
     %
     %
