@@ -174,7 +174,7 @@ udzDec =
 	lDec[[3]] (* z *)
 };
 
-udzDecOp = Dv /@ udzDec;
+udzDecOp = Lie /@ udzDec;
 
 Decart;
 udzDec // Transpose // MatrixForm
@@ -192,7 +192,7 @@ udzSpher =
 	lSpher[[3]] (* z *)
 };
 
-udzSpherOp = Dv /@ udzSpher;
+udzSpherOp = Lie /@ udzSpher;
 
 Spher;
 udzSpher // Transpose // MatrixForm
