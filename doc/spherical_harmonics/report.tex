@@ -95,10 +95,11 @@
             \V{l}_z = \qty{ 0, 0, 1 } = \V{e}_\varphi .
         \end{equation}
         %
-        Подействуем оператором
+        Подействуем оператором\footnotemark
         %
         \begin{equation}
             \Op{l}_z
+                = \delta_{\V{l}_z}
                 = \partial_{\V{l}_z}
                 = {\V{l}_z}^i \pdv{x^i}
                 = \pdv{\varphi}
@@ -111,6 +112,17 @@
         \end{equation}
         %
         откуда видно, что базовая мода $h_{l, 0}$ не зависит от $\varphi$.
+
+        \footnotetext{
+            Переход от $\delta_{\V{l}_z}$ к $\partial_{\V{l}_z}$ очевиден: компоненты вектора $\V{l}_z$ суть константы, так что $\partial_i \V{l}_z = 0$:
+            %
+            \begin{equation*}
+                \delta_{\V{l}_z} a^k
+                    = \comm{\V{l}_z}{a}^k
+                    = \partial_{\V{l}_z} a^k - \partial_a \V{l}_z
+                    = \partial_{\V{l}_z} a^k .
+            \end{equation*}
+        }
 
         Зависимость базовой моды от $\theta$ определяется из следующего уравнения:
         %
