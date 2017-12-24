@@ -148,6 +148,9 @@ angleSpherModeVectII // MatrixForm
 (*\:0418\:0437\:043e\:0431\:0440\:0430\:0436\:0435\:043d\:0438\:0435 \:0443\:0433\:043b\:043e\:0432\:044b\:0445 \:0447\:0430\:0441\:0442\:0435\:0439 \:0441\:0444\:0435\:0440\:0438\:0447\:0435\:0441\:043a\:0438\:0445 \:043c\:043e\:0434*)
 
 
+Spher;
+
+
 angleModeVectIIFunc[l_, m_] := Module[{ mode, result },
 	mode = angleSpherModeVectII // FunctionExpand;
 	Do[mode = udzSpherOp[[1]] @ mode // Simplify, { i, m }];
