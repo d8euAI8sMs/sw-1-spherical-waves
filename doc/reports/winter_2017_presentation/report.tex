@@ -377,7 +377,7 @@
         %
         Базовая мода не зависит от $\varphi$. Кроме того, базовая мода удовлетворяет соотношению:
         %
-        \begin{equation}
+        \begin{equation}\label{eq:basemode_eq}
             \Op{l}^2 h_{l, 0}
                 = \qty( \Op{l}_{+} \Op{l}_{-} + \Op{l}_z^2 - i \Op{l}_z ) h_{l, 0}
                 = \Op{l}_{+} \Op{l}_{-} h_{l, 0}
@@ -418,11 +418,98 @@
 
     \begin{frame}\frametitle{Скалярные моды}
 
-        Общий вид для неограниченного пространства:
+        В скалярном случае операторы Киллинга~--- просто дифференциальные операторы первого порядка:
         %
         \begin{equation}
-            f_{l,m}(r,\theta,\varphi)
-                = j_l(\sqrt{\lambda} r) i^m \exp(- i m \varphi) P^m_l\qty(\cos\theta) .
+            \Op{\xi} = \xi^i \pdv*{x^i} .
+        \end{equation}
+
+        Моду $h_{l,m}$ представим в виде произведения:
+        %
+        \begin{equation}
+            h_{l,m}(r,\theta,\varphi) = f(r) f_{l,m}(\theta,\varphi) .
+        \end{equation}
+
+        Базовая мода тогда запишется в виде:
+        %
+        \begin{equation}
+            h_{l,0}(r,\theta) = f(r) f_{l,0}(\theta) .
+        \end{equation}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Скалярные угловые моды~--- получение}
+
+        Уравнение (\autoref{eq:basemode_eq}) на угловую часть базовой моды $f_{l,0}(\theta) \equiv f_l(\theta)$:
+        %
+        \begin{equation}
+            \Op{l}_{+} \Op{l}_{-} f_l + l (l + 1) f_l = 0 .
+        \end{equation}
+        %
+        Раскроем операторы повышения и понижения. Получим дифференциальное уравнение второго порядка:
+        %
+        \begin{equation}
+            f_l''(\theta) + f_l'(\theta) \cot \theta + l (l + 1) f_l(\theta) = 0 .
+        \end{equation}
+        %
+        Данное уравнение определяет $P$- и $Q$-полиномы Лежандра. $Q$-полиномы не регулярны в нуле. Отсюда
+        %
+        \begin{equation}\label{eq:basemode_angle}
+            f_{l,0} = P_l(\cos\theta) .
+        \end{equation}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}
+
+        Получим угловые части производных мод ($m \neq 0$). Применим к \autoref{eq:basemode_angle} оператор повышения $m$ раз:
+        %
+        \begin{center}
+            \begin{tabular}{|c|c|c|}\hline
+                $m$ & \multicolumn{2}{|c|}{$f_{l,m}$} \\ \hline
+                $1$ & $i \exp(i\varphi) \sin(\theta) {P_l}'(\cos\theta)$
+                    & $- i \exp(i\varphi) P^1_l(\cos\theta)$ \\ \hline
+                $2$ & $- \exp(2i\varphi) \sin^2(\theta) {P_l}''(\cos\theta)$
+                    & $- \exp(2i\varphi) P^2_l(\cos\theta)$ \\ \hline
+                $3$ & $- i \exp(3i\varphi) \sin^3(\theta) {P_l}'''(\cos\theta)$
+                    & $i \exp(3i\varphi) P^3_l(\cos\theta)$ \\ \hline
+                $4$ & $\exp(4i\varphi) \sin^4(\theta) {P_l}''''(\cos\theta)$
+                    & $\exp(4i\varphi) P^4_l(\cos\theta)$ \\ \hline
+                $5$ & $i \exp(5i\varphi) \sin^5(\theta) {P_l}'''''(\cos\theta)$
+                    & $- i \exp(5i\varphi) P^5_l(\cos\theta)$ \\ \hline
+            \end{tabular} ,
+        \end{center}
+        %
+        \begin{equation}
+            P^m_l(\cos\theta) = (-1)^m \sin^m \theta \dv[m]{P_l\qty(\cos\theta)}{\qty(\cos\theta)} .
+        \end{equation}
+
+        Из приведенной таблицы заключаем, что общий вид производной моды следующий:
+        %
+        \begin{equation}
+            f_{l,m}(\theta,\varphi)
+                = \Op{l}^m_{+} f_l(\theta)
+                = (-i)^m \exp(i m \varphi) P^m_l\qty(\cos\theta) .
         \end{equation}
 
     \end{frame}
@@ -458,6 +545,66 @@
     %
     %
 
+    \begin{frame}\frametitle{Скалярные радиальные моды~--- получение}
+
+        Найдем вид $f(r)$, при котором базовая мода $h_{l,0}(r,\theta) = f(r) f_{l,0}(\theta)$ является собственной для оператора Лапласа:
+        %
+        \begin{equation}\label{eq:basemode_lap}
+            \Delta h_{l,0} = - \lambda h_{l,0} .
+        \end{equation}
+        %
+        Оператор Лапласа коммутирует с операторами повышения и понижения, потому $f_{l,0}(\theta)$ уже является собственной функцией оператора Лапласа, а значит \autoref{eq:basemode_lap} должно удовлетворяться для любого $\theta$. Из этого следует дифференциальное уравнение на $f(r)$:
+        %
+        \begin{equation}
+            r^2 f''(r) + 2 r f'(r) + (\lambda r^2 - l(l+1)) f(r) = 0 .
+        \end{equation}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}
+
+        Его решение~--- сферические $J$- и $Y$-функции Бесселя, получаемые из обычных по формулам:
+        %
+        \begin{equation}
+            j_n(r) = \frac{\sqrt{\pi/2}}{\sqrt{r}} J_{n+\frac{1}{2}}(r) ; \quad
+            y_n(r) = \frac{\sqrt{\pi/2}}{\sqrt{r}} Y_{n+\frac{1}{2}}(r) .
+        \end{equation}
+        %
+        $Y$-функции не регулярны в нуле, потому не интересны.
+
+        Итак,
+        %
+        \begin{equation}
+            f(r) = j_l(\sqrt{\lambda} r) ,
+        \end{equation}
+        %
+        \begin{equation}
+            f_{l,m}(r,\theta,\varphi)
+                = j_l(\sqrt{\lambda} r) (-i)^m \exp(i m \varphi) P^m_l\qty(\cos\theta) .
+        \end{equation}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
     \begin{frame}\frametitle{Скалярные радиальные моды}
 
         \begin{figure}[h]
@@ -466,6 +613,30 @@
             \caption[]{Скалярные радиальные моды для нескольких $l$}
             \label{fig:radial_modes}
         \end{figure}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Векторные моды}
+
+        Применительно к векторным полям операторы Киллинга~--- введенные ранее коммутаторы:
+        %
+        \begin{equation}\label{eq:killing_operator}
+            \delta_\xi a^k
+                = \xi^c \pdv{a^k}{x^c} - a^c \pdv{\xi^k}{x^c}
+                \equiv [\xi, a]^k .
+        \end{equation}
+
+        Из-за наличия члена $a^c \pdv*{\xi^k}{x^c}$, пропорционального компонентам самого векторного поля, компоненты проварьированного на $\xi$ векторного поля $\vb{a}$ приобретают весьма сложный вид, что доставляет определенные трудности для прямого решения задачи.
 
     \end{frame}
 
@@ -502,9 +673,9 @@
     %
     %
 
-    \begin{frame}\frametitle{Векторные моды}
+    \begin{frame}\frametitle{Векторные моды~--- получение}
 
-        Угловые моды:
+        Получение векторных мод основывается на том же общем подходе, что и получение скалярных. Операторы Киллинга берутся в виде \autoref{eq:killing_operator}. Следуя методике построения сферических мод для обеих поляризаций поля $\vb{a}$, строятся угловые и радиальные части сферических векторных мод. Опуская громоздкие и мало чем примечательные выкладки, приведем окончательный результат расчета угловых частей:
         %
         \begin{equation}
             \vb{a} = \begin{pmatrix}
