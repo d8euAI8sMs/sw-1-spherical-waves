@@ -252,6 +252,52 @@
     %
     %
 
+    \begin{frame}\frametitle{Поля Киллинга в сферических координатах}
+
+        Переведем поля Киллинга в сферическую систему координат. В контравариантных компонентах получим:
+        %
+        \begin{equation}
+            \V{n}_i
+            =
+            \begin{bmatrix}
+                \sin\theta \cos\varphi          & \sin\theta \sin\varphi        & \cos\theta \\
+                r^{-1} \cos\theta \cos\varphi   & r^{-1} \cos\theta \sin\varphi & - r^{-1} \sin\theta \\
+                - r^{-1} \csc\theta \sin\varphi & r^{-1} \csc\theta \cos\varphi & 0
+            \end{bmatrix}
+            ,
+        \end{equation}
+        %
+        \begin{equation}
+            \V{l}_i
+            =
+            \begin{bmatrix}
+                0
+                    & 0
+                    & 0 \\
+                \sin\varphi
+                    & \cos\varphi
+                    & 0 \\
+                \cos\varphi \cot\theta
+                    & \cot\theta \sin\varphi
+                    & - 1
+            \end{bmatrix}
+            .
+        \end{equation}
+
+        Наибольшее значение для нас будет иметь группа движений вращений. Следует отметить уже сейчас, что $\V{l}_z$ не зависит ни от одной из координат пространства.
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
     \begin{frame}\frametitle{Коммутационные соотношения операторов Киллинга}
 
         Коммутационные соотношения внутри и между группами движений евклидова пространства:
