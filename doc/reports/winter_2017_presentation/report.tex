@@ -469,6 +469,14 @@
         \begin{equation}
             \Op{\xi} = \xi^i \pdv*{x^i} .
         \end{equation}
+        %
+        Выпишем основные необходимые нам операторы Киллинга:
+        %
+        \begin{equation}\begin{gathered}
+            \Op{l}_{+} f = \exp(i\varphi) \qty(\cot(\theta) f'_\varphi - i f'_\theta) \\
+            \Op{l}_{-} f = \exp(-i\varphi) \qty(\cot(\theta) f'_\varphi + i f'_\theta) \\
+            \Op{l}_z f   = f'_\varphi .
+        \end{gathered}\end{equation}
 
         Моду $h_{l,m}$ представим в виде произведения:
         %
@@ -696,6 +704,36 @@
     %
     %
 
+    \begin{frame}
+
+        \begin{equation}\begin{gathered}\label{eq:killing_operators_vect}
+            \Op{l}_z a^k = \pdv{a^k}{\varphi} \\
+            \Op{l}_{+} a^k = \exp(i\varphi) \begin{pmatrix}
+                \cot(\theta) \pdv{a^1}{\varphi} - i \pdv{a^1}{\theta} \\
+                \cot(\theta) \pdv{a^2}{\varphi} - i \pdv{a^2}{\theta} - a^3 \\
+                \cot(\theta) \pdv{a^3}{\varphi} - i \pdv{a^3}{\theta}
+                    - i \cot(\theta) a^3 + \csc^2(\theta) a^2
+            \end{pmatrix}^k \\
+            \Op{l}_{-} a^k = \exp(-i\varphi) \begin{pmatrix}
+                \cot(\theta) \pdv{a^1}{\varphi} + i \pdv{a^1}{\theta} \\
+                \cot(\theta) \pdv{a^2}{\varphi} + i \pdv{a^2}{\theta} - a^3 \\
+                \cot(\theta) \pdv{a^3}{\varphi} + i \pdv{a^3}{\theta}
+                    + i \cot(\theta) a^3 + \csc^2(\theta) a^2
+            \end{pmatrix}^k
+        \end{gathered}\end{equation}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
     \begin{frame}\frametitle{Поляризации векторных мод}
 
         Поиск векторных мод общего вида весьма сложен. Можно поступить иначе и показать, что возможны две поляризации векторного поля $a$, удовлетворяющие волновому уравнению:
@@ -721,7 +759,7 @@
 
     \begin{frame}\frametitle{Векторные моды~--- получение}
 
-        Получение векторных мод основывается на том же общем подходе, что и получение скалярных. Операторы Киллинга берутся в виде \autoref{eq:killing_operator}. Следуя методике построения сферических мод для обеих поляризаций поля $\vb{a}$, строятся угловые и радиальные части сферических векторных мод. Опуская громоздкие и мало чем примечательные выкладки, приведем окончательный результат расчета угловых частей:
+        Получение векторных мод основывается на том же общем подходе, что и получение скалярных. Операторы Киллинга берутся в виде \autoref{eq:killing_operators_vect}. Следуя методике построения сферических мод для обеих поляризаций поля $\vb{a}$, строятся угловые и радиальные части сферических векторных мод. Опуская громоздкие и мало чем примечательные выкладки, приведем окончательный результат расчета угловых частей:
         %
         \begin{equation}
             \vb{a} = \begin{pmatrix}
