@@ -396,6 +396,95 @@
     %
     %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                           SECTION                                   %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \section{Нахождение радиальных частей векторных сферических мод}
+
+        Как и в скалярном случае, радиальные части сферических мод будем искать из основного уравнения задачи, а именно \autoref{eq:wave_equation}.
+
+        Будем обозначать $\mathrm{I}$-моду как $\vb{a}(r,\theta)$, $\mathrm{II}$-моду~--- как $\vb{b}(r,\theta)$. Напомним, что угловые части $\mathrm{I}$- и $\mathrm{II}$-мод ранее были обозначены как $\vb{a}(\theta)$ и $\vb{b}(\theta)$ соответственно. Итак,
+        %
+        \begin{equation}\begin{aligned}\label{eq:generic_vector_modes}
+            a^i(r,\theta) &= f_i(r) a^i(\theta), \\
+            b^i(r,\theta) &= f_i(r) b^i(\theta).
+        \end{aligned}\end{equation}
+        %
+        В выражении выше по $i$ суммирование \textit{не} ведется. Три функции $f_i(r)$, две из которых отвечают двум первым компонентам $\mathrm{I}$-моды, а третья~--- единственной ненулевой компоненте $\mathrm{II}$-моды, будут определены в данном пункте.
+
+        Подстановкой \autoref{eq:generic_vector_modes} в \autoref{eq:wave_equation} получим после необходимых математических преобразований систему уравнений на функции $f_i(r)$:
+        %
+        \begin{equation}\begin{aligned}
+            2 C_2 r l (1 + l) f_2(r) + C_1 \qty(
+                - \qty(2 + l + l^2 - \lambda r^2) f_1(r) +
+                2 r f_1'(r) + r^2 f_1''(r)
+            ) &= 0, \\
+            2 C_1 f_1(r) + r C_2 \qty(
+                - \qty(-2 + l + l^2 - \lambda r^2) f_2(r) +
+                4 r f_2'(r) + r^2 f_2''(r)
+            ) &= 0, \\
+            - \qty(-2 + l + l^2 - \lambda r^2) f_3(r) +
+                4 r f_3'(r) + r^2 f_3''(r) &= 0.
+        \end{aligned}\end{equation}
+
+        Решением последнего уравнения являются сферические функции Бесселя $l$-го порядка. Первые два уравнения являются сцепленными, и их решение в явном виде представляет трудности. Можно, однако, показать, что совместное решение этих уравнений также имеет результатом сферические функции Бесселя, однако уже смешанных порядков. Запишем явный вид $f_i(r)$:
+        %
+        \begin{equation}\begin{aligned}
+            f_1(r) &= \frac{1}{C_1} \frac{l(l+1)}{r} j_l(\sqrt\lambda r), \\
+            f_2(r) &= \frac{1}{C_2} \frac{1}{r^2} \qty(
+                \sqrt\lambda r j_{l-1}(\sqrt\lambda r) -
+                l j_l(\sqrt\lambda r)
+            ), \\
+            f_3(r) &= \frac{1}{C_3} \frac{1}{r} j_l(\sqrt\lambda r).
+        \end{aligned}\end{equation}
+
+        Таким образом, окончательно имеем:
+        %
+        \begin{equation}
+            \vb{a} = \begin{pmatrix}
+                \flatfrac{l(l+1)}{r} j_l(\sqrt\lambda r) P_l(\cos\theta) \\
+                \flatfrac{1}{r^2} \qty(
+                    \sqrt\lambda r j_{l-1}(\sqrt\lambda r) -
+                    l j_l(\sqrt\lambda r)
+                ) P_l^1(\cos\theta) \\
+                0
+            \end{pmatrix} , \quad
+            \vb{b} = \begin{pmatrix}
+                0 \\
+                0 \\
+                \flatfrac{i}{r} j_l(\sqrt\lambda r) \csc(\theta) P_l^1(\cos\theta)
+            \end{pmatrix} .
+        \end{equation}
+
+        На \autoref{fig:radial_modes_vect} представлены радиальные части сферических векторных мод разных конфигураций. Заметим, что для $\mathrm{I}$-моды минимальным значением $l$ становится $l = 2$ в виду расходимости $a^2(r,\theta)$ в нуле при меньших значениях параметра.
+        %
+        \begin{figure}[h]
+            \centering
+            %
+            \subfloat[][]{%
+                \label{fig:radial_modes_vect_ib}%
+                \includegraphics[width=0.45\textwidth]{radial_modes_vect_ib}}%
+            \hspace{8pt}%
+            %
+            \subfloat[][]{%
+                \label{fig:radial_modes_vect_ii}%
+                \includegraphics[width=0.45\textwidth]{radial_modes_vect_ii}}%
+            \hspace{8pt}%
+            %
+            \caption[]{Радиальные части векторных сферических мод для нескольких $l$: %
+                \subref{fig:radial_modes_vect_ib} вторая компонента $\mathrm{I}$-моды %
+                \subref{fig:radial_modes_vect_ii} третья компонента $\mathrm{II}$-моды. %
+            } %
+            \label{fig:radial_modes_vect}%
+        \end{figure}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %                        BIBLIOGRAPHY                                 %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %
