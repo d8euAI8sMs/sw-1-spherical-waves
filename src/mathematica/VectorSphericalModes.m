@@ -10,8 +10,14 @@ Quiet[NotebookEvaluate[FileNameJoin[{NotebookDirectory[],"..\\..\\lib\\mathemati
 ImportLibs[{ "Riemannian", "Killing" }, LibRoot -> $LibRoot];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*\:0412\:0441\:043f\:043e\:043c\:043e\:0433\:0430\:0442\:0435\:043b\:044c\:043d\:044b\:0435 \:0444\:0443\:043d\:043a\:0446\:0438\:0438*)
+
+
+SimplifyAsEquation[e_, nzero_ : {}] := Module[{e0},
+	e0 = Simplify[e == 0, Thread[nzero != 0]];
+	Return[e0[[1]] - e0[[2]] //Simplify];
+];
 
 
 (* ::Section:: *)
@@ -144,6 +150,138 @@ angleSpherModeVectI // MatrixForm
 angleSpherModeVectII // MatrixForm
 
 
+LapV[angleSpherModeVectII]//FullSimplify
+Table[%//FunctionExpand//PowerExpand//FullSimplify//PowerExpand//FullSimplify, {l,4}]
+
+
+(* ::Subsection::Closed:: *)
+(*\:041f\:043e\:043b\:0443\:0447\:0435\:043d\:0438\:0435 \:0440\:0430\:0434\:0438\:0430\:043b\:044c\:043d\:044b\:0445 \:0447\:0430\:0441\:0442\:0435\:0439 \:0441\:0444\:0435\:0440\:0438\:0447\:0435\:0441\:043a\:0438\:0445 \:043c\:043e\:0434*)
+
+
+(* ::Text:: *)
+(*\:0417\:0430\:043f\:0438\:0448\:0435\:043c \:0431\:0430\:0437\:043e\:0432\:0443\:044e \:043c\:043e\:0434\:0443 \:0441 \:0435\:0449\:0435 \:043d\:0435 \:0438\:0437\:0432\:0435\:0441\:0442\:043d\:043e\:0439 \:0440\:0430\:0434\:0438\:0430\:043b\:044c\:043d\:043e\:0439 \:0447\:0430\:0441\:0442\:044c\:044e.*)
+
+
+baseSpherModeVectIUnk  = angleSpherModeVectI * { f1[r], f2[r], f3[r] };
+baseSpherModeVectIIUnk = angleSpherModeVectII * { f1[r], f2[r], f3[r] };
+
+baseSpherModeVectIUnk //MatrixForm
+baseSpherModeVectIIUnk //MatrixForm
+
+
+(* ::Text:: *)
+(*\:0421\:043e\:0441\:0442\:0430\:0432\:0438\:043c \:0434\:0438\:0444\:0444\:0435\:0440\:0435\:043d\:0446\:0438\:0430\:043b\:044c\:043d\:044b\:0435 \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:044f \:043d\:0430 \:0440\:0430\:0434\:0438\:0430\:043b\:044c\:043d\:044b\:0435 \:0447\:0430\:0441\:0442\:0438 \:0441\:0444\:0435\:0440\:0438\:0447\:0435\:0441\:043a\:0438\:0445 \:043c\:043e\:0434.*)
+
+
+radialSpherModeVectIDE  = LapV[baseSpherModeVectIUnk] /. m -> L;
+radialSpherModeVectIIDE = LapV[baseSpherModeVectIIUnk] /. m -> L;
+radialSpherModeVectIDE  = Table[radialSpherModeVectIDE[[i]] //Simplify, {i,2}];
+radialSpherModeVectIIDE = radialSpherModeVectIIDE[[3]] //Simplify;
+radialSpherModeVectIDE //MatrixForm
+radialSpherModeVectIIDE //MatrixForm
+
+
+(* ::Text:: *)
+(*\:0414\:0430\:043d\:043d\:044b\:0435 \:0432\:044b\:0440\:0430\:0436\:0435\:043d\:0438\:044f \:0438 \:043f\:043e\:0441\:043b\:0435 \:0443\:043f\:0440\:043e\:0449\:0435\:043d\:0438\:044f \:0441\:0440\:0435\:0434\:0441\:0442\:0432\:0430\:043c\:0438 Wolfram \:0432\:044b\:0433\:043b\:044f\:0434\:044f\:0442 \:0433\:0440\:043e\:043c\:043e\:0437\:0434\:043a\:0438\:043c\:0438, \:043e\:0434\:043d\:0430\:043a\:043e \:043e\:043d\:0438 \:043c\:043e\:0433\:0443\:0442 \:0432\:044b\:0433\:043b\:044f\:0434\:0435\:0442\:044c \:043f\:0440\:043e\:0449\:0435. \:041c\:044b \:043f\:043e\:043a\:0430\:0436\:0435\:043c \:044d\:0442\:043e \:043f\:043e \:0438\:043d\:0434\:0443\:043a\:0446\:0438\:0438, \:043e\:0434\:043d\:0430\:043a\:043e \:0432\:043e\:0437\:043c\:043e\:0436\:043d\:043e \:0438 \:0441\:0442\:0440\:043e\:0433\:043e\:0435 \:043c\:0430\:0442\:0435\:043c\:0430\:0442\:0438\:0447\:0435\:0441\:043a\:043e\:0435 \:0434\:043e\:043a\:0430\:0437\:0430\:0442\:0435\:043b\:044c\:0441\:0442\:0432\:043e.*)
+
+
+radialSpherModeVectIDETable = Table[radialSpherModeVectIDE, {l, 5}] //FullSimplify //PowerExpand //FullSimplify;
+radialSpherModeVectIIDETable = Table[radialSpherModeVectIIDE, {l, 5}] //FullSimplify //PowerExpand //FullSimplify;
+
+radialSpherModeVectIDETable //TableForm
+radialSpherModeVectIIDETable //TableForm
+
+
+(* ::Text:: *)
+(*\:041c\:043e\:0436\:043d\:043e \:0437\:0430\:043c\:0435\:0442\:0438\:0442\:044c, \:0447\:0442\:043e, \:0432\:043e-\:043f\:0435\:0440\:0432\:044b\:0445, \:0437\:0430\:0432\:0438\:0441\:044f\:0449\:0438\:0435 \:043e\:0442 \:0443\:0433\:043b\:0430 \:0438 \:0437\:0430\:0432\:0438\:0441\:044f\:0449\:0438\:0435 \:043e\:0442 \:0440\:0430\:0434\:0438\:0443\:0441\:0430 \:043c\:043d\:043e\:0436\:0438\:0442\:0435\:043b\:0438 \:0440\:0430\:0437\:0434\:0435\:043b\:044f\:044e\:0442\:0441\:044f, \:0430 \:0432\:043e-\:0432\:0442\:043e\:0440\:044b\:0445, \:043a\:043e\:044d\:0444\:0444\:0438\:0446\:0438\:0435\:043d\:0442\:044b \:043f\:0440\:0438 f1, f2 \:0438 f3 \:043f\:043e\:0434\:0447\:0438\:043d\:044f\:044e\:0442\:0441\:044f \:043d\:0435\:043a\:043e\:0442\:043e\:0440\:044b\:043c \:043a\:0432\:0430\:0434\:0440\:0430\:0442\:0438\:0447\:043d\:044b\:043c \:0437\:0430\:043a\:043e\:043d\:0430\:043c. \:041e\:0441\:0432\:043e\:0431\:043e\:0434\:0438\:043c\:0441\:044f \:043e\:0442 \:043b\:0438\:0448\:043d\:0438\:0445 \:043c\:043d\:043e\:0436\:0438\:0442\:0435\:043b\:0435\:0439 \:0438 \:043e\:043f\:0440\:0435\:0434\:0435\:043b\:0438\:043c \:043a\:043e\:044d\:0444\:0444\:0438\:0446\:0438\:0435\:043d\:0442\:044b.*)
+
+
+radialSpherModeVectIDETable = radialSpherModeVectIDETable /. { Cos[_] -> 1, Sin[_] -> 1 } //Numerator;
+radialSpherModeVectIIDETable = radialSpherModeVectIIDETable /. { Cos[_] -> 1, Sin[_] -> 1 } //Numerator;
+
+radialSpherModeVectIDETable //TableForm
+radialSpherModeVectIIDETable //TableForm
+
+coefSeries1 = { 4, 8, 14, 22, 32 };
+coefSeries2 = { 4, 12, 24, 40, 60 };
+coefSeries3 = { 0, 4, 10, 18, 28 };
+
+coefFunc1 = Fit[Table[{ i, coefSeries1[[i]] }, {i,5}], { 1, l, l^2 }, l] //Chop //Rationalize //Simplify
+coefFunc2 = Fit[Table[{ i, coefSeries2[[i]] }, {i,5}], { 1, l, l^2 }, l] //Chop //Rationalize //Simplify
+coefFunc3 = Fit[Table[{ i, coefSeries3[[i]] }, {i,5}], { 1, l, l^2 }, l] //Chop //Rationalize //Simplify
+
+
+(* ::Text:: *)
+(*\:0422\:0430\:043a\:0438\:043c \:043e\:0431\:0440\:0430\:0437\:043e\:043c, \:043e\:043a\:043e\:043d\:0447\:0430\:0442\:0435\:043b\:044c\:043d\:043e*)
+
+
+radialSpherModeVectIDE = radialSpherModeVectIDETable[[5]] /. {
+	-Evaluate[coefFunc1 /. l -> 5] -> -coefFunc1,
+	Evaluate[coefFunc2 /. l -> 5] -> coefFunc2,
+	-Evaluate[coefFunc3 /. l -> 5] -> -coefFunc3
+};
+radialSpherModeVectIIDE = radialSpherModeVectIIDETable[[5]] /. {
+	-Evaluate[coefFunc3 /. l -> 5] -> -coefFunc3
+};
+radialSpherModeVectIDE = Table[radialSpherModeVectIDE[[i]] //SimplifyAsEquation, {i,2}];
+radialSpherModeVectIIDE = radialSpherModeVectIIDE //SimplifyAsEquation;
+
+radialSpherModeVectIDE //MatrixForm
+radialSpherModeVectIIDE //MatrixForm
+
+
+DSolve[Table[radialSpherModeVectIDE[[i]] == 0, {i,2}], { f1[r], f2[r] }, r]
+DSolve[radialSpherModeVectIIDE == 0, f3[r], r]
+
+
+(* ::Text:: *)
+(*\:0412 \:043a\:0430\:0447\:0435\:0441\:0442\:0432\:0435 \:0440\:0435\:0448\:0435\:043d\:0438\:044f \:0432\:0442\:043e\:0440\:043e\:0433\:043e \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:044f \:0432\:044b\:0431\:0435\:0440\:0435\:043c \:0442\:043e\:043b\:044c\:043a\:043e J-\:0441\:043e\:0441\:0442\:0430\:0432\:043b\:044f\:044e\:0449\:0443\:044e.*)
+
+
+(* ::Text:: *)
+(*\:041f\:0435\:0440\:0432\:0430\:044f \:0441\:0438\:0441\:0442\:0435\:043c\:0430 \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:0439 \:043d\:0435 \:043c\:043e\:0436\:0435\:0442 \:0431\:044b\:0442\:044c \:0440\:0435\:0448\:0435\:043d\:0430 \:0441\:0440\:0435\:0434\:0441\:0442\:0432\:0430\:043c\:0438 Wolfram. \:0420\:0435\:0448\:0438\:043c \:0435\:0435 \:0432\:0440\:0443\:0447\:043d\:0443\:044e.*)
+
+
+(* ::Text:: *)
+(*\:041c\:043e\:0436\:043d\:043e \:0437\:0430\:043c\:0435\:0442\:0438\:0442\:044c, \:0447\:0442\:043e \:0431\:0435\:0437 \:0447\:043b\:0435\:043d\:0430 \:0441 f1[r] \:043f\:0435\:0440\:0432\:043e\:0435 \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:0435 \:0431\:044b\:043b\:043e \:0431\:044b \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:0435\:043c \:043d\:0430 \:0444\:0443\:043d\:043a\:0446\:0438\:0438 \:0411\:0435\:0441\:0441\:0435\:043b\:044f. \:0412 \:0442\:0430\:043a\:043e\:043c \:0441\:043b\:0443\:0447\:0430\:0435 \:0440\:0430\:0437\:0443\:043c\:043d\:043e \:0438\:0441\:043a\:0430\:0442\:044c \:0440\:0435\:0448\:0435\:043d\:0438\:0435 \:0432 \:043a\:043b\:0430\:0441\:0441\:0435 \:0444\:0443\:043d\:043a\:0446\:0438\:0439 \:0411\:0435\:0441\:0441\:0435\:043b\:044f. \:041e\:043f\:044b\:0442\:043d\:044b\:043c \:043f\:0443\:0442\:0435\:043c \:043c\:043e\:0436\:043d\:043e \:043f\:043e\:043b\:0443\:0447\:0438\:0442\:044c \:0442\:0430\:043a\:043e\:0435 \:0440\:0435\:0448\:0435\:043d\:0438\:0435:*)
+
+
+radialSpherModeVectI  = {
+	1 / C[1] l   SphericalBesselJ[l - 1, Sqrt[L] r],
+	1 / (C[2] r) SphericalBesselJ[l - 1, Sqrt[L] r]
+};
+radialSpherModeVectII = 1 / C[3] l (l + 1) / r SphericalBesselJ[l, Sqrt[L] r];
+
+radialSpherModeVectIDE /. {
+	f1 -> (radialSpherModeVectI[[1]] /. r -> # &),
+	f2 -> (radialSpherModeVectI[[2]] /. r -> # &)
+} //FullSimplify
+
+radialSpherModeVectIIDE /. {
+	f3 -> (radialSpherModeVectII /. r -> # &)
+} //FullSimplify
+
+
+(* ::Text:: *)
+(*\:0422\:0435\:043c \:0436\:0435 \:043f\:0443\:0442\:0435\:043c \:043c\:043e\:0436\:043d\:043e \:043f\:043e\:043b\:0443\:0447\:0438\:0442\:044c \:0431\:043e\:043b\:0435\:0435 \:043f\:0440\:0438\:0432\:043b\:0435\:043a\:0430\:0442\:0435\:043b\:044c\:043d\:043e\:0435 \:0440\:0435\:0448\:0435\:043d\:0438\:0435 \:0432\:0438\:0434\:0430*)
+
+
+radialSpherModeVectI  = {
+	1 / C[1] l (l + 1) / r SphericalBesselJ[l, Sqrt[L] r],
+	1 / C[2] (Sqrt[L] r SphericalBesselJ[l - 1, Sqrt[L] r] - l SphericalBesselJ[l, Sqrt[L] r]) / r^2
+};
+radialSpherModeVectII = 1 / C[3] l (l + 1) / r SphericalBesselJ[l, Sqrt[L] r];
+
+radialSpherModeVectIDE /. {
+	f1 -> (radialSpherModeVectI[[1]] /. r -> # &),
+	f2 -> (radialSpherModeVectI[[2]] /. r -> # &)
+} //FullSimplify
+
+radialSpherModeVectIIDE /. {
+	f3 -> (radialSpherModeVectII /. r -> # &)
+} //FullSimplify
+
+
 (* ::Subsection::Closed:: *)
 (*\:0418\:0437\:043e\:0431\:0440\:0430\:0436\:0435\:043d\:0438\:0435 \:0443\:0433\:043b\:043e\:0432\:044b\:0445 \:0447\:0430\:0441\:0442\:0435\:0439 \:0441\:0444\:0435\:0440\:0438\:0447\:0435\:0441\:043a\:0438\:0445 \:043c\:043e\:0434*)
 
@@ -195,3 +333,37 @@ angleModeVectIIPlotsTable = TableForm[
 angleModeVectIIPlotsTable
 
 Export[FileNameJoin[{NotebookDirectory[], "angle_modes_vect_ii.png"}], angleModeVectIIPlotsTable, Background -> None];
+
+
+
+
+
+(* ::Subsection::Closed:: *)
+(*\:0418\:0437\:043e\:0431\:0440\:0430\:0436\:0435\:043d\:0438\:0435 \:0440\:0430\:0434\:0438\:0430\:043b\:044c\:043d\:044b\:0445 \:0447\:0430\:0441\:0442\:0435\:0439 \:0441\:0444\:0435\:0440\:0438\:0447\:0435\:0441\:043a\:0438\:0445 \:043c\:043e\:0434*)
+
+
+Spher;
+
+
+radialSpherModesVectIB = Table[radialSpherModeVectI[[2]] /. { L -> 1, C[_] -> 1 }, {l, 2, 5}];
+radialSpherModesVectII = Table[radialSpherModeVectII /. { L -> 1, C[_] -> 1 }, {l, 1, 4}];
+
+radialSpherModesVectPlotIB = Plot[
+	Evaluate[Table[Callout[radialSpherModesVectIB[[l-1]], StringForm["l = ``", l], Above], {l, 2, 5}]],
+	{r,0,15},
+	PlotRange -> Full,
+	ClippingStyle -> Automatic,
+	Ticks -> {{0, 5, 10, 15}, {0, 0.1, 0.2}},
+	AxesLabel -> { "r", "\*SubsuperscriptBox[a,n,2](r)" }
+]
+
+radialSpherModesVectPlotII = Plot[
+	Evaluate[Table[Callout[radialSpherModesVectII[[l]], StringForm["l = ``", l], Above], {l, 1, 4}]],
+	{r,0,15},
+	PlotRange -> Full,
+	Ticks -> {{0, 5, 10, 15}, {0, 0.25, 0.5}},
+	AxesLabel -> { "r", "\*SubsuperscriptBox[b,n,3](r)" }
+]
+
+Export[FileNameJoin[{NotebookDirectory[], "radial_modes_vect_ib.png"}], radialSpherModesVectPlotIB, Background -> None, ImageSize -> {800, 600}];
+Export[FileNameJoin[{NotebookDirectory[], "radial_modes_vect_ii.png"}], radialSpherModesVectPlotII, Background -> None, ImageSize -> {800, 600}];
