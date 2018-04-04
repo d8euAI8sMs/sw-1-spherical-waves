@@ -215,6 +215,45 @@
             \label{fig:angle_modes}
         \end{figure}
 
+        Вскользь затронем вопрос нормировки угловых мод. Для нас данный вопрос не является столь существенным (и далее будет опускаться), однако его рассмотрение имеет целью переход к классической форме записи скалярных мод для демонстрации идентичности результатов, полученных классическими методами и используемой нами методикой.
+
+        Известны т.н. сферические функции $Y_{l,m}(\theta,\varphi)$ вида
+        %
+        \begin{equation}
+            Y_{l,m}(\theta,\varphi) = \frac{1}{\sqrt{2\pi}} \exp(im\varphi) \Theta_{l,m}(\theta) ,
+        \end{equation}
+        %
+        где
+        %
+        \begin{equation}
+            \Theta_{l,m}(\theta) = (-1)^m \sqrt{
+                \frac{2l + 1}{2} \frac{(l-m)!}{(l+m)!}
+            } P^m_l\qty(\cos\theta) ,
+        \end{equation}
+        %
+        которые образуют полный ортонормированный базис в пространстве функций $f(\theta,\varphi)$, что означает выполнение для них соотношения ортогональности и нормированности на единицу в сферических координатах:
+        %
+        \begin{equation}
+            \braket{Y_{l,m}}{Y_{l',m'}}
+                = \int\limits_0^{2\pi} \int\limits_0^\pi {
+                    Y_{l,m} Y_{l',m'} \sin\theta
+                } \dd{\theta} \dd{\varphi}
+                = \delta_{ll'} \delta_{mm'} .
+        \end{equation}
+        %
+        Используем сферические функции в полученном нами результате:
+        %
+        \begin{equation}
+            f_{l,m}(\theta,\varphi)
+                = i^m Y_{l,m}(\theta,\varphi) .
+        \end{equation}
+        %
+        Константа $i^m$ здесь не является сколь-нибудь существенной. Действительно, она не влияет на нормировку: $i^m \times (i^m)^* = 1$. Она тем более никак не влияет на ортогональность функций $f_{l,m}$. Поэтому здесь и далее мы будем ее опускать, полагая
+        %
+        \begin{equation}
+            f_{l,m}(\theta,\varphi) \equiv Y_{l,m}(\theta,\varphi) .
+        \end{equation}
+
     %
     %
     %
@@ -264,7 +303,7 @@
         %
         \begin{equation}
             f_{l,m}(r,\theta,\varphi)
-                = j_l(\sqrt{\lambda} r) (-i)^m \exp(i m \varphi) P^m_l\qty(\cos\theta) .
+                = j_l(\sqrt{\lambda} r) Y_{l,m}(\theta,\varphi) .
         \end{equation}
         %
         \begin{figure}[h]
