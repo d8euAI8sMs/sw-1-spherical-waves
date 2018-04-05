@@ -238,6 +238,20 @@ DSolve[radialSpherModeVectIIDE == 0, f3[r], r]
 (*\:041f\:0435\:0440\:0432\:0430\:044f \:0441\:0438\:0441\:0442\:0435\:043c\:0430 \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:0439 \:043d\:0435 \:043c\:043e\:0436\:0435\:0442 \:0431\:044b\:0442\:044c \:0440\:0435\:0448\:0435\:043d\:0430 \:0441\:0440\:0435\:0434\:0441\:0442\:0432\:0430\:043c\:0438 Wolfram. \:0420\:0435\:0448\:0438\:043c \:0435\:0435 \:0432\:0440\:0443\:0447\:043d\:0443\:044e.*)
 
 
+TestRadialSpherModes[modeI_, modeII_] := Module[{r1, r2},
+	r1 = radialSpherModeVectIDE /. {
+		f1 -> (modeI[[1]] /. r -> # &),
+		f2 -> (modeI[[2]] /. r -> # &)
+	} //FullSimplify;
+
+	r2 = radialSpherModeVectIIDE /. {
+		f3 -> (modeII /. r -> # &)
+	} //FullSimplify;
+
+	Return[Flatten[{r1, r2}]];
+];
+
+
 (* ::Text:: *)
 (*\:041c\:043e\:0436\:043d\:043e \:0437\:0430\:043c\:0435\:0442\:0438\:0442\:044c, \:0447\:0442\:043e \:0431\:0435\:0437 \:0447\:043b\:0435\:043d\:0430 \:0441 f1[r] \:043f\:0435\:0440\:0432\:043e\:0435 \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:0435 \:0431\:044b\:043b\:043e \:0431\:044b \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:0435\:043c \:043d\:0430 \:0444\:0443\:043d\:043a\:0446\:0438\:0438 \:0411\:0435\:0441\:0441\:0435\:043b\:044f. \:0412 \:0442\:0430\:043a\:043e\:043c \:0441\:043b\:0443\:0447\:0430\:0435 \:0440\:0430\:0437\:0443\:043c\:043d\:043e \:0438\:0441\:043a\:0430\:0442\:044c \:0440\:0435\:0448\:0435\:043d\:0438\:0435 \:0432 \:043a\:043b\:0430\:0441\:0441\:0435 \:0444\:0443\:043d\:043a\:0446\:0438\:0439 \:0411\:0435\:0441\:0441\:0435\:043b\:044f. \:041e\:043f\:044b\:0442\:043d\:044b\:043c \:043f\:0443\:0442\:0435\:043c \:043c\:043e\:0436\:043d\:043e \:043f\:043e\:043b\:0443\:0447\:0438\:0442\:044c \:0442\:0430\:043a\:043e\:0435 \:0440\:0435\:0448\:0435\:043d\:0438\:0435:*)
 
@@ -248,14 +262,7 @@ radialSpherModeVectI  = {
 };
 radialSpherModeVectII = 1 / C[3] l (l + 1) / r SphericalBesselJ[l, Sqrt[L] r];
 
-radialSpherModeVectIDE /. {
-	f1 -> (radialSpherModeVectI[[1]] /. r -> # &),
-	f2 -> (radialSpherModeVectI[[2]] /. r -> # &)
-} //FullSimplify
-
-radialSpherModeVectIIDE /. {
-	f3 -> (radialSpherModeVectII /. r -> # &)
-} //FullSimplify
+TestRadialSpherModes[radialSpherModeVectI, radialSpherModeVectII]
 
 
 (* ::Text:: *)
@@ -268,14 +275,7 @@ radialSpherModeVectI  = {
 };
 radialSpherModeVectII = 1 / C[3] l (l + 1) / r SphericalBesselJ[l, Sqrt[L] r];
 
-radialSpherModeVectIDE /. {
-	f1 -> (radialSpherModeVectI[[1]] /. r -> # &),
-	f2 -> (radialSpherModeVectI[[2]] /. r -> # &)
-} //FullSimplify
-
-radialSpherModeVectIIDE /. {
-	f3 -> (radialSpherModeVectII /. r -> # &)
-} //FullSimplify
+TestRadialSpherModes[radialSpherModeVectI, radialSpherModeVectII]
 
 
 (* ::Subsection::Closed:: *)
