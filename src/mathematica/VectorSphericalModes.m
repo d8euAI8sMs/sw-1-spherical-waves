@@ -5,9 +5,9 @@
 
 
 (* ::Input::Initialization:: *)
-Quiet[NotebookEvaluate[FileNameJoin[{NotebookDirectory[],"..\\..\\lib\\mathematica\\LibGet.m"}]]];
+If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..\\..\\lib\\mathematica"}]]];
 
-ImportLibs[{ "Riemannian", "Killing" }, LibRoot -> $LibRoot];
+(Once@Get[#] &) /@ { "Riemannian.m", "Killing.m" };
 
 
 (* ::Section::Closed:: *)
