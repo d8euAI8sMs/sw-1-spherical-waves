@@ -401,7 +401,7 @@ Spher;
 
 
 radialSpherModesVectIB = Table[radialSpherModeVectI[[2]] /. { L -> 1, C[_] -> 1 }, {l, 2, 5}];
-radialSpherModesVectII = Table[radialSpherModeVectII /. { L -> 1, C[_] -> 1 }, {l, 1, 4}];
+radialSpherModesVectII = Table[radialSpherModeVectII /. { L -> 1, C[_] -> 1 }, {l, 2, 5}];
 
 radialSpherModesVectPlotIB = Plot[
 	Evaluate[Table[Callout[radialSpherModesVectIB[[l-1]], StringForm["l = ``", l], Above], {l, 2, 5}]],
@@ -413,7 +413,7 @@ radialSpherModesVectPlotIB = Plot[
 ]
 
 radialSpherModesVectPlotII = Plot[
-	Evaluate[Table[Callout[radialSpherModesVectII[[l]], StringForm["l = ``", l], Above], {l, 1, 4}]],
+	Evaluate[Table[Callout[radialSpherModesVectII[[l-1]], StringForm["l = ``", l], Above], {l, 2, 5}]],
 	{r,0,15},
 	PlotRange -> Full,
 	Ticks -> {{0, 5, 10, 15}, {0, 0.25, 0.5}},
