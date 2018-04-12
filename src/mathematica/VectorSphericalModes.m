@@ -319,7 +319,7 @@ Table[%, {l, 2, 6}] //FullSimplify //PowerExpand //FullSimplify //Mean
 
 
 {
-	(l + 1) f3[r] LegendreP[l, Cos[u]],
+	l (l + 1) f3[r] LegendreP[l, Cos[u]],
 	(2 f3[r] + r f3'[r]) / r LegendreP[l, 1, Cos[u]],
 	0
 } //MatrixForm
@@ -337,7 +337,7 @@ Table[%, {l, 2, 6}] //FullSimplify //PowerExpand //FullSimplify //Mean
 
 
 {
-	(l + 1) f3[r] LegendreP[l, Cos[u]],
+	l (l + 1) f3[r] LegendreP[l, Cos[u]],
 	D[r^2 f3[r], r] / r^2 LegendreP[l, 1, Cos[u]],
 	0
 } //Simplify //MatrixForm
