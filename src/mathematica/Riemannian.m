@@ -5,7 +5,7 @@
 
 
 (* ::Input::Initialization:: *)
-If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..\\..\\lib\\mathematica"}]]];
+If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..", "..", "lib", "mathematica"}]]];
 
 (Once@Get[#] &) /@ { "Riemannian.m", "Killing.m" };
 

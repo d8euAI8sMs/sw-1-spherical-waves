@@ -5,7 +5,7 @@
 
 
 (* ::Input::Initialization:: *)
-If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..\\..\\lib\\mathematica"}]]];
+If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..", "..", "lib", "mathematica"}]]];
 
 ImportLibs := (Once@Get[#] &) /@ { "BesselRoots.m" };
 
@@ -298,8 +298,9 @@ plankTestR = {
 plankTestR //TableForm
 
 
-Export[FileNameJoin[{NotebookDirectory[], "n.png"}],        modesPlot [[1,1]],   Background -> None, ImageSize -> {800, 600}];
-Export[FileNameJoin[{NotebookDirectory[], "n_full.png"}],   modesPlot [[2,1]],   Background -> None, ImageSize -> {800, 600}];
-Export[FileNameJoin[{NotebookDirectory[], "dndx.png"}],     sqFuncCoef[[3,1,1]], Background -> None, ImageSize -> {800, 600}];
-Export[FileNameJoin[{NotebookDirectory[], "dndx_mag.png"}], sqFuncCoef[[3,2,1]], Background -> None, ImageSize -> {800, 600}];
-Export[FileNameJoin[{NotebookDirectory[], "plank.png"}],    plankTestR[[2,1,1]], Background -> None, ImageSize -> {800, 600}];
+Quiet@CreateDirectory[FileNameJoin[{NotebookDirectory[], "dist"}]];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "n.png"}],        modesPlot [[1,1]],   Background -> None, ImageSize -> {800, 600}];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "n_full.png"}],   modesPlot [[2,1]],   Background -> None, ImageSize -> {800, 600}];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "dndx.png"}],     sqFuncCoef[[3,1,1]], Background -> None, ImageSize -> {800, 600}];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "dndx_mag.png"}], sqFuncCoef[[3,2,1]], Background -> None, ImageSize -> {800, 600}];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "plank.png"}],    plankTestR[[2,1,1]], Background -> None, ImageSize -> {800, 600}];

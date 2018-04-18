@@ -5,7 +5,7 @@
 
 
 (* ::Input::Initialization:: *)
-If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..\\..\\lib\\mathematica"}]]];
+If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..", "..", "lib", "mathematica"}]]];
 
 (Once@Get[#] &) /@ { "Riemannian.m", "Killing.m" };
 
@@ -413,10 +413,8 @@ angleModeVectIIPlotsTable = TableForm[
 
 angleModeVectIIPlotsTable
 
-Export[FileNameJoin[{NotebookDirectory[], "angle_modes_vect_ii.png"}], angleModeVectIIPlotsTable, Background -> None];
-
-
-
+Quiet@CreateDirectory[FileNameJoin[{NotebookDirectory[], "dist"}]];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "angle_modes_vect_ii.png"}], angleModeVectIIPlotsTable, Background -> None];
 
 
 (* ::Subsection::Closed:: *)
@@ -446,5 +444,6 @@ radialSpherModesVectPlotII = Plot[
 	AxesLabel -> { "r", "\*SubsuperscriptBox[b,n,3](r)" }
 ]
 
-Export[FileNameJoin[{NotebookDirectory[], "radial_modes_vect_ib.png"}], radialSpherModesVectPlotIB, Background -> None, ImageSize -> {800, 600}];
-Export[FileNameJoin[{NotebookDirectory[], "radial_modes_vect_ii.png"}], radialSpherModesVectPlotII, Background -> None, ImageSize -> {800, 600}];
+Quiet@CreateDirectory[FileNameJoin[{NotebookDirectory[], "dist"}]];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "radial_modes_vect_ib.png"}], radialSpherModesVectPlotIB, Background -> None, ImageSize -> {800, 600}];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "radial_modes_vect_ii.png"}], radialSpherModesVectPlotII, Background -> None, ImageSize -> {800, 600}];

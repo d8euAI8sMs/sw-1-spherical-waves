@@ -5,7 +5,7 @@
 
 
 (* ::Input::Initialization:: *)
-If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..\\..\\lib\\mathematica"}]]];
+If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..", "..", "lib", "mathematica"}]]];
 
 (Once@Get[#] &) /@ { "Riemannian.m", "Killing.m" };
 
@@ -204,7 +204,8 @@ angleModePlotsTable = TableForm[
 
 angleModePlotsTable
 
-Export[FileNameJoin[{NotebookDirectory[], "angle_modes.png"}], angleModePlotsTable, Background -> None];
+Quiet@CreateDirectory[FileNameJoin[{NotebookDirectory[], "dist"}]];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "angle_modes.png"}], angleModePlotsTable, Background -> None];
 
 
 (* ::Subsection::Closed:: *)
@@ -224,4 +225,5 @@ radialSpherModesPlot = Plot[
 	AxesLabel -> { "r", "\*SubscriptBox[j,n](r)" }
 ]
 
-Export[FileNameJoin[{NotebookDirectory[], "radial_modes.png"}], radialSpherModesPlot, Background -> None, ImageSize -> {800, 600}];
+Quiet@CreateDirectory[FileNameJoin[{NotebookDirectory[], "dist"}]];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "radial_modes.png"}], radialSpherModesPlot, Background -> None, ImageSize -> {800, 600}];

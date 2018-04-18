@@ -5,7 +5,7 @@
 
 
 (* ::Input::Initialization:: *)
-If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..\\..\\lib\\mathematica"}]]];
+If[$FrontEnd =!= Null, AppendTo[$Path, FileNameJoin[{NotebookDirectory[], "..", "..", "lib", "mathematica"}]]];
 
 ImportLibs := (Once@Get[#] &) /@ { "BesselZeros`" };
 
@@ -243,7 +243,8 @@ Block[{s1 = {0, 0}, s2 = {0, 0}},
 
 On[General::stop];
 
-Save[FileNameJoin[{NotebookDirectory[], $outputFilename}], {
+Quiet@CreateDirectory[FileNameJoin[{NotebookDirectory[], "dist"}]];
+Save[FileNameJoin[{NotebookDirectory[], "dist", $outputFilename}], {
 	radialFuncMinOrder, radialFuncMaxOrder, besselRoots, riccatiBesselPrimeRoots
 }];
 
