@@ -248,10 +248,10 @@ Save[FileNameJoin[{NotebookDirectory[], $outputFilename}], {
 }];
 
 TableForm[Take[(Take[#, UpTo[5]] &) /@ besselRoots, UpTo[10]], TableHeadings -> {
-	(StringForm["l = ``", #] &) /@ Range[2, 11],
+	(StringForm["l = ``", #] &) /@ Range[$radialFuncMinOrder, 10],
 	Range[1, 5]
 }]
 TableForm[Take[(Take[#, UpTo[5]] &) /@ riccatiBesselPrimeRoots, UpTo[10]], TableHeadings -> {
-	(StringForm["l = ``", #] &) /@ Range[2, 11],
+	(StringForm["l = ``", #] &) /@ Range[$radialFuncMinOrder, 10],
 	Range[1, 5]
 }]
