@@ -220,7 +220,7 @@ GenerateRadialFunctionZeros[fn_, { l1_, l2_ }, n_, maxr_, monitor_] := Module[{i
 (*\:041f\:043e\:043b\:0443\:0447\:0435\:043d\:0438\:0435 \:043d\:0443\:043b\:0435\:0439 \:0440\:0430\:0434\:0438\:0430\:043b\:044c\:043d\:044b\:0445 \:0444\:0443\:043d\:043a\:0446\:0438\:0439*)
 
 
-$radialFuncMinOrder = 2;
+$radialFuncMinOrder = 1;
 $radialFuncMaxOrder = 1000;
 $radialFuncMaxRoot  = 1000;
 $radialFuncMaxR     = 1200;
