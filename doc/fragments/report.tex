@@ -1,0 +1,34 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../lib/doc/pkg/common}
+\input{../../lib/doc/math/operators}
+
+\title{Термодинамика сферических резонаторов}
+\author{Василевский А.В.}
+
+\begin{document}
+
+    \maketitle
+    \tableofcontents
+
+    \section{Постановка задачи}
+    \includedoc{spherical_resonators}{contents}
+
+    \section{Математическое введение}
+    \includedoc{math}{contents}
+
+    \section{Нахождение сферических мод}
+    \includedoc{spherical_modes}{contents}
+
+    \section{Термодинамика сферических резонаторов}
+    \includedoc{thermodynamics}{contents}
+
+    \appendix
+
+    \includedoc{thermodynamics}{contents-appendix}
+
+    \nocite{*}
+    \bibliographystyle{../../lib/doc/bib/utf8gost705s}
+    \bibliography{../../lib/doc/bib/math,../../lib/doc/bib/resonators,../../lib/doc/bib/physics}
+
+\end{document}
