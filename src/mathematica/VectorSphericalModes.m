@@ -424,20 +424,20 @@ Export[FileNameJoin[{NotebookDirectory[], "dist", "angle_modes_vect_ii.png"}], a
 Spher;
 
 
-radialSpherModesVectIB = Table[radialSpherModeVectI[[2]] /. { L -> 1, C[_] -> 1 }, {l, 2, 5}];
-radialSpherModesVectII = Table[radialSpherModeVectII /. { L -> 1, C[_] -> 1 }, {l, 2, 5}];
+radialSpherModesVectIB = Table[radialSpherModeVectI[[2]] /. { L -> 1, C[_] -> 1 }, {l, 1, 4}];
+radialSpherModesVectII = Table[radialSpherModeVectII /. { L -> 1, C[_] -> 1 }, {l, 1, 4}];
 
 radialSpherModesVectPlotIB = Plot[
-	Evaluate[Table[Callout[radialSpherModesVectIB[[l-1]], StringForm["l = ``", l], Above], {l, 2, 5}]],
+	Evaluate[Table[Callout[radialSpherModesVectIB[[l]], StringForm["l = ``", l], Above], {l, 1, 4}]],
 	{r,0,15},
-	PlotRange -> Full,
+	PlotRange -> { Full, { -0.1, 0.3 } },
 	ClippingStyle -> Automatic,
 	Ticks -> {{0, 5, 10, 15}, {0, 0.1, 0.2}},
 	AxesLabel -> { "r", "\*SubsuperscriptBox[a,n,2](r)" }
 ]
 
 radialSpherModesVectPlotII = Plot[
-	Evaluate[Table[Callout[radialSpherModesVectII[[l-1]], StringForm["l = ``", l], Above], {l, 2, 5}]],
+	Evaluate[Table[Callout[radialSpherModesVectII[[l]], StringForm["l = ``", l], Above], {l, 1, 4}]],
 	{r,0,15},
 	PlotRange -> Full,
 	Ticks -> {{0, 5, 10, 15}, {0, 0.25, 0.5}},
