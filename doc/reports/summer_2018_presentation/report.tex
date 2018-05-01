@@ -487,13 +487,11 @@
 
     \begin{frame}\frametitle{Векторные моды~--- получение}
 
-        Для краткости далее будем обозначать $\vb{E}_{TE} \equiv \vb{E}$.
-
-        Подводя итог, необходимо для базовой моды $\vb{E} = \qty{0, 0, E_\varphi(r,\theta)}$:
+        Подводя итог, необходимо для базовой моды $\vb{E}_{TE} = \qty{0, 0, E^\varphi(r,\theta)}$:
         %
         \begin{enumerate}
-            \item получить решение \autoref{eq:basemode_eq} для угловой части $\vb{E}$,
-            \item получить радиальную часть $\vb{E}$ из \autoref{eq:wave_equation} при заданных граничных условиях.
+            \item получить решение \autoref{eq:basemode_eq} для угловой части $\vb{E}_{TE}$,
+            \item получить радиальную часть $\vb{E}_{TE}$ из \autoref{eq:wave_equation} при заданных граничных условиях.
         \end{enumerate}
 
         Поляризация $\vb{E}_{TH}$ получится из $\vb{E}_{TE}$ применением ротора. Производные моды~--- применением операторов повышения и понижения.
@@ -512,7 +510,7 @@
 
     \begin{frame}\frametitle{Векторные угловые моды~--- получение}
 
-        Уравнение \autoref{eq:basemode_eq} с подстановкой $E_\varphi(r,\theta) = \csc(\theta) f(r) f(\theta)$ в конечном виде преобразуется в
+        Уравнение \autoref{eq:basemode_eq} с подстановкой $E^\varphi(r,\theta) = \csc(\theta) f(r) f(\theta)$ в конечном виде преобразуется в
         %
         \begin{equation*}
             l (l + 1) f(\theta)
@@ -523,7 +521,7 @@
         Отсюда
         %
         \begin{equation}\label{eq:angle_modes_vect}
-            E_\varphi(r,\theta) = f(r) \csc(\theta) P^1_l(\cos\theta) .
+            E^\varphi(r,\theta) = f(r) \csc(\theta) P^1_l(\cos\theta) .
         \end{equation}
         %
         Здесь $P^1_l$~--- присоединенные полиномы Лежандра первого рода, функция $f(r)$~--- пока неизвестная радиальная часть.
