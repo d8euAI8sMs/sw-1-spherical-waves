@@ -682,22 +682,45 @@
     \begin{frame}\frametitle{Спектральная плотность энергии}
 
         \begin{itemize}
+            \item Применим методы статистической физики.
+
             \item По определению спектральной плотности энергии
             %
             \begin{equation}\label{eq:psd}
                 u(\omega) \dd{\omega} = \hbar\omega\ n(\hbar\omega) \dd{N(\omega)} ,
             \end{equation}
 
-            \item Можно показать \cite{sivuhin_opt}, что для электромагнитного поля
-            %
-            \begin{equation}\label{eq:dN_of_eps_cont}
-                \dd{N(\omega)} = \frac{\omega^2 \dd{\omega}}{\pi^2 v^3} .
-            \end{equation}
-
-            \item Распределение Бозе-Эйнштейна:
+            \item Распределение Бозе-Эйнштейна~--- среднее число фотонов с данной энергией $\varepsilon = \hbar\omega$:
             %
             \begin{equation}\label{eq:n_of_eps}
                 n(\varepsilon) = \frac{1}{\exp(\flatfrac{\varepsilon}{kT}) - 1} .
+            \end{equation}
+
+            \item Для получения $u(\omega)$ необходимо лишь знать вид $\dv*{N(\omega)}{\omega}$.
+
+        \end{itemize}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Формула Планка}
+
+        \begin{itemize}
+
+            \item Можно показать \cite{sivuhin_opt}, что для электромагнитного поля
+            %
+            \begin{equation}\label{eq:dN_of_eps_cont}
+                \dd{N(\omega)} = \frac{\omega^2 \dd{\omega}}{\pi^2 v^3} \quad
+                    \text{при больших $\omega$}.
             \end{equation}
 
             \item Формула Планка:
@@ -723,6 +746,32 @@
     %
 
     \begin{frame}\frametitle{Подсчет мод}
+
+        \begin{itemize}
+
+            \item \autoref{eq:dN_of_eps_cont}~--- асимптотическая формула (точна при больших $\omega$).
+
+            \item Нами был найден точный дискретный спектр собственных мод и собственных частот резонатора.
+
+            \item Мы можем показать, что в области высоких частот действительно имеет место \autoref{eq:dN_of_eps_cont}.
+
+            \item \textbf{Мы можем указать на расхождения с \autoref{eq:dN_of_eps_cont} в области низких частот.}
+
+        \end{itemize}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}
 
         \begin{itemize}
             \item $l$-я мода $2l + 1$ раз вырождена по энергии, следовательно число мод с данной собственной частотой $N(\omega^{lp}_n) = 2l + 1$.
