@@ -613,21 +613,21 @@
 
         Итак, мы окончательно получили базовую моду $\vb{E}_{TE}$:
         %
-        \begin{equation*}
+        \begin{equation}\label{eq:ete}
             \vb{E}_{TE} = \begin{pmatrix}
                 0 \\ 0 \\ \flatfrac{S_l(\sqrt\lambda r)}{r^2} \csc(\theta) P^1_l(\cos\theta)
             \end{pmatrix} .
-        \end{equation*}
+        \end{equation}
         %
         Применением ротора к ней получим $\vb{E}_{TH}$:
         %
-        \begin{equation*}
+        \begin{equation}\label{eq:eth}
             \vb{E}_{TH} = \begin{pmatrix}
                 \flatfrac{l(l+1) S_l(\sqrt\lambda r)}{r^2} P_l(\cos\theta) \\
                 \flatfrac{S_l'(\sqrt\lambda r)}{r^2} P_l^1(\cos\theta) \\
                 0
             \end{pmatrix} .
-        \end{equation*}
+        \end{equation}
 
     \end{frame}
 
@@ -644,9 +644,11 @@
     \begin{frame}\frametitle{Учет граничных условий}
 
         \begin{itemize}
-            \item Граничные условия~--- исчезновение тангенциальной компоненты поля.
+            \item Поверхность резонатора~--- идеальный проводник.
 
-            \item Отсюда $S_l(\sqrt\lambda r_\text{шара}) = 0$ для $TE$-поляризации и $S_l'(\sqrt\lambda r_\text{шара}) = 0$ для $TH$-поляризации.
+            \item В силу этого $E^\varphi = E^\theta = 0$ при $r = r_\text{шара}$.
+
+            \item Отсюда из \autoref{eq:ete} и \autoref{eq:eth} получим $S_l(\sqrt\lambda r_\text{шара}) = 0$ для $TE$-поляризации и $S_l'(\sqrt\lambda r_\text{шара}) = 0$ для $TH$-поляризации. В силу осциллирующего характера функций $S_l$ и $S'_l$ решений $\lambda_n$ бесконечно много.
 
             \item $\sqrt\lambda = \flatfrac{\omega}{v}$, значит из граничных условий получим спектр собственных частот резонатора $\omega^{lp}_n$ ($p$~--- тип поляризации, $TH$ или $TE$).
 
@@ -723,15 +725,17 @@
     \begin{frame}\frametitle{Подсчет мод}
 
         \begin{itemize}
-            \item В нашем случае $N(\omega^{lp}_n) = 2l + 1$.
+            \item $l$-я мода $2l + 1$ раз вырождена по энергии, следовательно число мод с данной собственной частотой $N(\omega^{lp}_n) = 2l + 1$.
 
-            \item $\dv*{N(\omega)}{\omega} \approx \flatfrac{\Delta N}{\Delta \omega}$, где $\Delta N$~--- количество мод на единицу объема в спектральном интервале $\qty(\omega - \Delta\omega/2, \omega + \Delta\omega/2)$.
+            \item $\dd{N(\omega)}$ из \autoref{eq:psd} можно аппроксимировать $\Delta N(\omega)$, количеством мод на единицу объема в \textit{конечном} спектральном интервале шириной $\Delta \omega$:
             %
             \begin{equation*}
-                V_\text{шара} \Delta N(\omega) = \sum\limits_{
+                \Delta N(\omega) = \sum\limits_{
                     \qty|\omega - \omega_n| < \Delta\omega/2
                 } N(\omega_n)
             \end{equation*}
+
+            \item Деля $\Delta N(\omega)$ на объем резонатора $V_\text{шара} = \flatfrac{4}{3} \pi r^3_\text{шара}$, заменяя в \autoref{eq:psd} $\dd{\omega}$ на $\Delta \omega$ и $\dd{N(\omega)}$ на $\Delta N(\omega)$, и используя \autoref{eq:n_of_eps} получим асимптотическую формулу Планка в дискретном виде.
 
         \end{itemize}
 
