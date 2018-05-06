@@ -280,13 +280,19 @@ modesPlot = {
 }
 
 
+modes = MakeDiscreteModeDistribution[{ 1, 100 }, { 1, 100 }, 100];
+cmplModes = TakeWhile[modes, (First@# < 100 &)];
+conv = RectFilter[cmplModes, 5];
+cmplConv = TakeWhile[conv, (First@# < 100 - 5 &)];
+
+
+sqFuncCoef = TestSqFunc[]
+
+
 modes = MakeDiscreteModeDistribution[{ 1, 300 }, { 1, 300 }, 300];
 cmplModes = TakeWhile[modes, (First@# < 300 &)];
 conv = RectFilter[cmplModes, 5];
 cmplConv = TakeWhile[conv, (First@# < 300 - 5 &)];
-
-
-sqFuncCoef = TestSqFunc[]
 
 
 plankTestR = {
