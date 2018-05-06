@@ -121,6 +121,32 @@ TestPlank[T_, r0_] := Module[{plank, plot, splot, lplot, slplot},
 ];
 
 
+(* ::Text:: *)
+(*\:041f\:043e\:043b\:0443\:0447\:0435\:043d\:0438\:0435 \:0441\:043f\:0438\:0441\:043a\:0430 \:043c\:043e\:0434 \:0441 \:0434\:0435\:0442\:0430\:043b\:0438\:0437\:0430\:0446\:0438\:0435\:0439 \:043f\:043e \:043d\:043e\:043c\:0435\:0440\:0443 l*)
+
+
+MakeDetailedModeDistribution[{ l1_, l2_ }, r_] := Module[{a, b, s},
+	a = ParallelTable[{ besselRoots[[i - radialFuncMinOrder + 1]][[j]], 2 i + 1 }, {i, l1, Min[l2, Length[besselRoots] + radialFuncMinOrder - 1]}, {j, Min[r, Length@besselRoots[[i - radialFuncMinOrder + 1]]]}];
+	b = ParallelTable[{ riccatiBesselPrimeRoots[[i - radialFuncMinOrder + 1]][[j]], 2 i + 1 }, {i, l1, Min[l2, Length[riccatiBesselPrimeRoots] + radialFuncMinOrder - 1]}, {j, Min[r, Length@riccatiBesselPrimeRoots[[i - radialFuncMinOrder + 1]]]}];
+	Return[SortBy[Table[SortBy[Flatten[{ a[[i]], b[[i]] }, 1], First], {i, Min[Length[a], Length[b]]}], (First@First@# &)]];
+];
+
+
+(* ::Text:: *)
+(*\:041f\:043e\:0441\:0442\:0440\:043e\:0435\:043d\:0438\:0435 \:043f\:043b\:0430\:043d\:043a\:043e\:0432\:0441\:043a\:043e\:0439 \:043a\:0440\:0438\:0432\:043e\:0439 \:0434\:043b\:044f \:0441\:043b\:0443\:0447\:0430\:044f \:0434\:0435\:0442\:0430\:043b\:0438\:0437\:0438\:0440\:043e\:0432\:0430\:043d\:043d\:043e\:0433\:043e \:0441\:043f\:0438\:0441\:043a\:0430 \:043c\:043e\:0434*)
+
+
+DetailedTestPlank[T_, r0_, l0_, nleg_] := Module[{plank, plot, splot, lplot, slplot, maxx, maxy},
+	plank = Table[Plank[cmplModes[[i]], T, r0], {i, Length[cmplModes]}];
+	maxx = 0; maxy = 0;
+	Do[maxy = Max[maxy, plank[[i,j,2]]], {i, Length[plank]}, {j, Length[plank[[i]]]}];
+	Do[If[plank[[i,j,2]] > 0.01 maxy, maxx = plank[[i,j,1]]; Break[]], {i, Length[plank], 1, -1}, {j, Length[plank[[i]]], 1, -1}];
+	lplot = ListPlot[plank, PlotRange -> { {0, maxx}, Full }, PlotMarkers -> Automatic, PlotLegends -> Table[Style[StringForm["l = ``", l0 + i - 1], FontFamily -> "Times", Italic], {i, Min[Length[cmplModes], nleg]}]];
+	plot = Plot[Plank[T, r0][x], {x, 0, maxx}, PlotRange -> Full, PlotStyle -> { Red, Thick }];
+	Pane@Show[Flatten[{lplot, {plot}}, 1], PlotRange -> { {0, maxx}, All }, AxesOrigin -> {0, 0}]
+];
+
+
 (* ::Section:: *)
 (*\:0412\:044b\:0447\:0438\:0441\:043b\:0435\:043d\:0438\:044f*)
 
@@ -304,9 +330,22 @@ plankTestR = {
 plankTestR //TableForm
 
 
+modes = MakeDetailedModeDistribution[{ 1, 60 }, 60];
+cmplModes = TakeWhile[Table[TakeWhile[modes[[i]], (First@# < 60 &)], {i, Length[modes]}], (# != {} &)];
+
+
+plankTestSmallT = Table[DetailedTestPlank[i, 20 * 10^(-6), 1, 5], {i, {50, 100, 200, 300}}];
+plankTestSmallT
+plankTestSmallTImage = (Legended[Show[#[[1,1]], ImageSize -> {800, 600} / 1.5], #[[1,2]]] &) /@ plankTestSmallT;
+
+
 Quiet@CreateDirectory[FileNameJoin[{NotebookDirectory[], "dist"}]];
 Export[FileNameJoin[{NotebookDirectory[], "dist", "n.png"}],        modesPlot [[1,1]],   Background -> None, ImageSize -> {800, 600}];
 Export[FileNameJoin[{NotebookDirectory[], "dist", "n_full.png"}],   modesPlot [[2,1]],   Background -> None, ImageSize -> {800, 600}];
 Export[FileNameJoin[{NotebookDirectory[], "dist", "dndx.png"}],     sqFuncCoef[[3,1,1]], Background -> None, ImageSize -> {800, 600}];
 Export[FileNameJoin[{NotebookDirectory[], "dist", "dndx_mag.png"}], sqFuncCoef[[3,2,1]], Background -> None, ImageSize -> {800, 600}];
 Export[FileNameJoin[{NotebookDirectory[], "dist", "plank.png"}],    plankTestR[[2,1,1]], Background -> None, ImageSize -> {800, 600}];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "plank_small_t_1.png"}], plankTestSmallTImage[[1]], Background -> None, ImageResolution -> 96];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "plank_small_t_2.png"}], plankTestSmallTImage[[2]], Background -> None, ImageResolution -> 96];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "plank_small_t_3.png"}], plankTestSmallTImage[[3]], Background -> None, ImageResolution -> 96];
+Export[FileNameJoin[{NotebookDirectory[], "dist", "plank_small_t_4.png"}], plankTestSmallTImage[[4]], Background -> None, ImageResolution -> 96];
