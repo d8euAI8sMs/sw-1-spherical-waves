@@ -112,7 +112,7 @@
         \textbf{Физическая модель резонатора}:
         %
         \begin{itemize}\justifying
-            \item Идеально сферический радиуса $r_\text{шара}$.
+            \item Идеально сферический радиуса $R$.
             \item Заполнен изотропным однородным диэлектриком.
             \item Стенки идеально проводящие.
         \end{itemize}
@@ -144,7 +144,7 @@
 
             \item Уравнение \autoref{eq:wave_equation}~--- уравнение на собственные функции и собственные значения (моды) оператора Лапласа $\Delta$.
 
-            \item Поскольку стенки резонатора~--- идеальные проводники, то граничные условия: $\vb{E}^\theta = \vb{E}^\varphi = 0$ при $r = r_\text{шара}$.
+            \item Поскольку стенки резонатора~--- идеальные проводники, то граничные условия: $\vb{E}^\theta = \vb{E}^\varphi = 0$ при $r = R$.
 
         \end{itemize}
 
@@ -205,90 +205,32 @@
     %
     %
 
-    \begin{frame}\frametitle{Операторы Киллинга}
+    \begin{frame}\frametitle{Поля Киллинга евклидова пространства}
 
         \begin{itemize}\justifying
 
-            \item Ли-вариация $\delta_\xi\tau$~--- инвариантное обобщение производной по направлению на произвольные тензорные поля \cite{lie_derivative_theory,symmetry_and_killing_fields}.
+            \item Поле Киллинга~--- векторное поле, сдвиг по которому (Ли-вариация) не изменяет метрический тензор.
+
+            \item В трехмерном евклидовом пространстве существует шесть полей Киллинга. В декартовых координатах:
             %
-            \begin{equation*}\begin{aligned}
-                \delta_\xi a^i &= \xi^c \partial_c a^i - a^c \partial_{c} \xi^i , \\
-                \delta_\xi g_{ij} &= \nabla_i \xi_j + \nabla_j \xi_i .
-            \end{aligned}\end{equation*}
-
-            \item Метрический тензор $g_{ij}$ полностью определяет метрику риманова пространства.
-
-            \item Если $\delta_\xi g_{ij} = 0$, то говорят, что $\xi$~--- поле Киллинга, или движение, а $\delta_\xi$~--- оператор Киллинга.
+            \begin{equation*}
+                \V{\xi}_i
+                =
+                \left[
+                    \V{n}_x, \V{n}_y, \V{n}_z,
+                    \V{l}_x, \V{l}_y, \V{l}_z
+                \right]
+                =
+                \begin{bmatrix}
+                    1 & 0 & 0 & 0  & -z & y  \\
+                    0 & 1 & 0 & z  & 0  & -x \\
+                    0 & 0 & 1 & -y & x  & 0
+                \end{bmatrix}
+            \end{equation*}
+            %
+            Первая тройка образует группу движений трансляций, вторая~--- группу движений вращений.
 
         \end{itemize}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Поля Киллинга евклидова пространства}
-
-        В трехмерном евклидовом пространстве существует шесть полей Киллинга. В декартовых координатах:
-        %
-        \begin{equation*}
-            \V{\xi}_i
-            =
-            \left[
-                \V{n}_x, \V{n}_y, \V{n}_z,
-                \V{l}_x, \V{l}_y, \V{l}_z
-            \right]
-            =
-            \begin{bmatrix}
-                1 & 0 & 0 & 0  & -z & y  \\
-                0 & 1 & 0 & z  & 0  & -x \\
-                0 & 0 & 1 & -y & x  & 0
-            \end{bmatrix}
-        \end{equation*}
-
-        Первая тройка образует группу движений трансляций, вторая~--- группу движений вращений.
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Поля Киллинга в сферических координатах}
-
-        Группа вращений в сферической системе координат $(r,\theta,\varphi)$ в контравариантных компонентах:
-        %
-        \begin{equation*}
-            \V{l}_i
-            =
-            \begin{bmatrix}
-                0
-                    & 0
-                    & 0 \\
-                \sin\varphi
-                    & \cos\varphi
-                    & 0 \\
-                \cos\varphi \cot\theta
-                    & \cot\theta \sin\varphi
-                    & - 1
-            \end{bmatrix}
-            .
-        \end{equation*}
-
-         Следует отметить уже сейчас, что $\V{l}_z$ не зависит ни от одной из координат пространства, а также что ни один $\V{l}_i$ не содержит $r$-й компоненты.
 
     \end{frame}
 
@@ -368,7 +310,7 @@
         Легко убедиться, что базовая мода,  т.е. мода с $m = 0$, не зависит от $\varphi$:
         %
         \begin{equation*}
-            \Op{l}_z h_{l, 0} = \pdv{h_{l, 0}}{\varphi} \overset{\left\{\text{по смыслу $m$}\right\}}{=} 0 .
+            \Op{l}_z h_{l, 0} = \pdv{\varphi} h_{l, 0} \overset{\left\{\text{по смыслу $m$}\right\}}{=} 0 .
         \end{equation*}
         %
         Кроме того, базовая мода удовлетворяет соотношению:
@@ -437,30 +379,6 @@
     %
     %
 
-    \begin{frame}\frametitle{Векторные моды}
-
-        Операторы Киллинга применительно к векторным полям:
-        %
-        \begin{equation*}\label{eq:killing_operator}
-            \Op{\xi} a^k
-                \equiv \delta_\xi a^k
-                = \xi^c \pdv{a^k}{x^c} - a^c \pdv{\xi^k}{x^c} .
-        \end{equation*}
-
-        Из-за наличия члена $a^c \pdv*{\xi^k}{x^c}$, пропорционального компонентам самого векторного поля, компоненты проварьированного на $\xi$ векторного поля $\vb{a}$ приобретают весьма сложный вид, что доставляет определенные трудности для прямого решения задачи.
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
     \begin{frame}\frametitle{Поляризации векторных мод}
 
         Можно показать, что возможны две поляризации векторного поля $\vb{a}$, удовлетворяющие волновому уравнению:
@@ -485,37 +403,22 @@
     %
     %
 
-    \begin{frame}\frametitle{Векторные моды~--- получение}
-
-        Подводя итог, необходимо для базовой моды $\vb{E}_{TE} = \qty{0, 0, E^\varphi(r,\theta)}$:
-        %
-        \begin{enumerate}\justifying
-            \item получить решение \autoref{eq:basemode_eq} для угловой части $\vb{E}_{TE}$,
-            \item получить радиальную часть $\vb{E}_{TE}$ из \autoref{eq:wave_equation} при заданных граничных условиях.
-        \end{enumerate}
-
-        Поляризация $\vb{E}_{TH}$ получится из $\vb{E}_{TE}$ применением ротора. Производные моды~--- применением операторов повышения и понижения.
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
     \begin{frame}\frametitle{Векторные угловые моды~--- получение}
+
+        Операторы Киллинга применительно к векторным полям:
+        %
+        \begin{equation*}\label{eq:killing_operator}
+            \Op{\xi} a^k
+                \equiv \delta_\xi a^k
+                = \xi^c \pdv{a^k}{x^c} - a^c \pdv{\xi^k}{x^c} .
+        \end{equation*}
 
         Уравнение \autoref{eq:basemode_eq} с подстановкой $E^\varphi(r,\theta) = \csc(\theta) f(r) f(\theta)$ в конечном виде преобразуется в
         %
         \begin{equation*}
             l (l + 1) f(\theta)
-            + \cot(\theta) \pdv{f(\theta)}{\theta}
-            + \pdv[2]{f(\theta)}{\theta} = 0
+            + \cot(\theta) f'(\theta)
+            + f''(\theta) = 0
         \end{equation*}
         %
         Отсюда
@@ -646,9 +549,9 @@
         \begin{itemize}\justifying
             \item Поверхность резонатора~--- идеальный проводник.
 
-            \item В силу этого $E^\varphi = E^\theta = 0$ при $r = r_\text{шара}$.
+            \item В силу этого $E^\varphi = E^\theta = 0$ при $r = R$.
 
-            \item Отсюда из \autoref{eq:ete} и \autoref{eq:eth} получим $S_l(\sqrt\lambda r_\text{шара}) = 0$ для $TE$-поляризации и $S_l'(\sqrt\lambda r_\text{шара}) = 0$ для $TH$-поляризации. В силу осциллирующего характера функций $S_l$ и $S'_l$ решений $\lambda_n$ бесконечно много.
+            \item Отсюда из \autoref{eq:ete} и \autoref{eq:eth} получим $S_l(\sqrt\lambda R) = 0$ для $TE$-поляризации и $S_l'(\sqrt\lambda R) = 0$ для $TH$-поляризации. В силу осциллирующего характера функций $S_l$ и $S'_l$ решений $\lambda_n$ бесконечно много.
 
             \item $\sqrt\lambda = \flatfrac{\omega}{v}$, значит из граничных условий получим спектр собственных частот резонатора $\omega^{lp}_n$ ($p$~--- тип поляризации, $TH$ или $TE$).
 
@@ -667,7 +570,7 @@
     %
     %
 
-    \section[СПЭ]{Построение кривой спектральной плотности энергии}
+    \section[СПЭ]{Спектральная плотность энергии}
 
     %
     %
@@ -784,7 +687,7 @@
                 } N(\omega_n)
             \end{equation*}
 
-            \item Деля $\Delta N(\omega)$ на объем резонатора $V_\text{шара} = \flatfrac{4}{3} \pi r^3_\text{шара}$, заменяя в \autoref{eq:psd} $\dd{\omega}$ на $\Delta \omega$ и $\dd{N(\omega)}$ на $\Delta N(\omega)$, и используя \autoref{eq:n_of_eps} получим асимптотическую формулу Планка в дискретном виде.
+            \item Деля $\Delta N(\omega)$ на объем резонатора $V = \flatfrac{4}{3} \pi R^3$, заменяя в \autoref{eq:psd} $\dd{\omega}$ на $\Delta \omega$ и $\dd{N(\omega)}$ на $\Delta N(\omega)$, и используя \autoref{eq:n_of_eps} получим асимптотическую формулу Планка в дискретном виде.
 
         \end{itemize}
 
@@ -815,7 +718,7 @@
                 \includegraphics[width=0.45\textwidth]{dndx_mag}}%
             \hspace{8pt}%
             %
-            \caption[]{$N(x_n)$ и $\flatfrac{\Delta N}{\Delta x}$ вблизи нуля, $x = \flatfrac{\omega}{v} r_\text{шара}$}
+            \caption[]{$N(x_n)$ и $\flatfrac{\Delta N}{\Delta x}$ вблизи нуля, $x = \flatfrac{\omega}{v} R$}
         \end{figure}
 
     \end{frame}
@@ -845,7 +748,56 @@
                 \includegraphics[width=0.45\textwidth]{plank}}%
             \hspace{8pt}%
             %
-            \caption[]{$\flatfrac{\Delta N}{\Delta x}$ и $u(x)$ в б\'{о}льшем интервале частот, $x = \flatfrac{\omega}{v} r_\text{шара}$}
+            \caption[]{$\flatfrac{\Delta N}{\Delta x}$ и $u(x)$ в б\'{о}льшем интервале частот, $x = \flatfrac{\omega}{v} R$}
+        \end{figure}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Область низких частот}
+
+        \begin{itemize}\justifying
+            \item В области $kT \sim \hbar\omega_{min}$ нельзя считать спектр (макроскопически) непрерывным.
+
+            \item Практически при $T = 300K$ условие $kT \sim \hbar\omega_{min}$ реализуется, если характерный размер резонатора порядка десятков микрон.
+
+            \item Плотность энергии дискретна. Интегральная энергия складывается из:
+            %
+            \begin{equation*}
+                W = \int u(\omega) \dd{\omega} = \sum \hbar\omega_n\ n(\hbar\omega_n) N(\omega_n) = \sum W_n .
+            \end{equation*}
+
+        \end{itemize}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}
+
+        \begin{figure}[h]
+            \centering
+            \begin{tabular}{ l c r }
+                \includegraphics[width=0.5\textwidth]{plank_small_t_1} & \includegraphics[width=0.5\textwidth]{plank_small_t_2} \\
+                \includegraphics[width=0.5\textwidth]{plank_small_t_3} & \includegraphics[width=0.5\textwidth]{plank_small_t_4} \\
+            \end{tabular}
         \end{figure}
 
     \end{frame}
@@ -882,6 +834,8 @@
             \item Получен вид скалярных и векторных сферических мод.
 
             \item Построена кривая спектральной плотности запасенной в резонаторе энергии.
+
+            \item Отдельно рассмотрена область низких частот.
         \end{itemize}
 
         Все поставленные цели были достигнуты.
@@ -899,6 +853,7 @@
     %
 
     \begin{frame}\frametitle{Литература}
+        \nocite{burlankov_tmf,methods_of_theoretical_physics}
         \bibliographystyle{../../../lib/doc/bib/utf8gost705s}
         \bibliography{%
             ../../../lib/doc/bib/resonators,%
