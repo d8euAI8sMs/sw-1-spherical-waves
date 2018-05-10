@@ -85,11 +85,11 @@ TestSqFunc[] := Module[{sqFunc, sqFuncFit, correlation, plots},
 		Pane@Show[{
 			ListPlot[cmplConv, PlotRange -> { { 0, First@Last@cmplConv }, Full }],
 			Plot[sqFunc /. sqFuncFit, { x, 0, First@Last@cmplConv }, PlotStyle -> { Red, Thick }]
-		}],
+		}, AxesLabel -> { "x", "\[CapitalDelta]N(x)" }],
 		Pane@Show[{
 			ListPlot[Take[cmplConv, 10], PlotRange -> { { 0, First@cmplConv[[10]] }, Full }],
 			Plot[sqFunc /. sqFuncFit, { x, 0, First@cmplConv[[10]] }, PlotStyle -> { Red, Thick }]
-		}]
+		}, AxesLabel -> { "x", "\[CapitalDelta]N(x)" }]
 	};
 	
 	{ a /. sqFuncFit, correlation, plots }
@@ -110,13 +110,13 @@ Plank[T_, r0_] := Function[{x}, (x^3 / N@Pi^2 / r0^3 (Exp[hhh * x * ccc / (kT / 
 
 TestPlank[T_, r0_] := Module[{plank, plot, splot, lplot, slplot},
 	plank = Plank[cmplConv, T, r0];
-	lplot = ListPlot[plank, PlotRange -> Full];
+	lplot = ListPlot[plank, PlotRange -> Full, AxesLabel -> { "x", "u(x)" }];
 	plot = Plot[Plank[T, r0][x], {x, 0, First@Last@cmplConv}, PlotRange -> Full, PlotStyle -> { Red, Thick }];
 	slplot = ListPlot[Take[plank, 10], PlotRange -> Full];
 	splot = Plot[Plank[T, r0][x], {x, 0, First@cmplConv[[10]]}, PlotRange -> Full, PlotStyle -> { Red, Thick }];
 	{
-		Pane@Show[{lplot, plot}, PlotRange -> All, AxesOrigin -> {0, 0}],
-		Pane@Show[{slplot, splot}, PlotRange -> All, AxesOrigin -> {0, 0}]
+		Pane@Show[{lplot, plot}, PlotRange -> All, AxesOrigin -> {0, 0}, AxesLabel -> { "x", "u(x)" }],
+		Pane@Show[{slplot, splot}, PlotRange -> All, AxesOrigin -> {0, 0}, AxesLabel -> { "x", "u(x)" }]
 	}
 ];
 
@@ -143,7 +143,7 @@ DetailedTestPlank[T_, r0_, l0_, nleg_] := Module[{plank, plot, splot, lplot, slp
 	Do[If[plank[[i,j,2]] > 0.01 maxy, maxx = plank[[i,j,1]]; Break[]], {i, Length[plank], 1, -1}, {j, Length[plank[[i]]], 1, -1}];
 	lplot = ListPlot[plank, PlotRange -> { {0, maxx}, Full }, PlotMarkers -> Automatic, PlotLegends -> Table[Style[StringForm["l = ``", l0 + i - 1], FontFamily -> "Times", Italic], {i, Min[Length[cmplModes], nleg]}]];
 	plot = Plot[Plank[T, r0][x], {x, 0, maxx}, PlotRange -> Full, PlotStyle -> { Red, Thick }];
-	Pane@Show[Flatten[{lplot, {plot}}, 1], PlotRange -> { {0, maxx}, All }, AxesOrigin -> {0, 0}]
+	Pane@Show[Flatten[{lplot, {plot}}, 1], PlotRange -> { {0, maxx}, All }, AxesOrigin -> {0, 0}, AxesLabel -> { "x", "u(x), \*SubscriptBox[W,n]" }]
 ];
 
 
@@ -301,8 +301,8 @@ last = MakeDiscreteModeDistribution[{ 20, 20 }, { 20, 20 }, 1];
 
 
 modesPlot = {
-	Pane@ListPlot[modes],
-	Pane@ListPlot[TakeWhile[modes, (First@# <= Min[First@First@last, First@Last@last] &)]]
+	Pane@ListPlot[modes, AxesLabel -> { "x", "N(x)" }],
+	Pane@ListPlot[TakeWhile[modes, (First@# <= Min[First@First@last, First@Last@last] &)], AxesLabel -> { "x", "N(x)" }]
 }
 
 
