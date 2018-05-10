@@ -648,7 +648,7 @@
     %
     %
 
-    \begin{frame}\frametitle{Подсчет мод}
+    \begin{frame}\frametitle{Спектральная плотность энергии}
 
         \begin{itemize}\justifying
 
@@ -674,10 +674,49 @@
     %
     %
 
-    \begin{frame}
+    \begin{frame}\frametitle{Энергия при различных температурах}
 
         \begin{itemize}\justifying
-            \item $l$-я мода $2l + 1$ раз вырождена по энергии, следовательно число мод с данной собственной частотой $N(\omega^{lp}_n) = 2l + 1$.
+
+            \item $l$-я мода $2l + 1$ раз вырождена по энергии, следовательно число мод (на единицу объема резонатора) с данной собственной частотой $N(\omega^{lp}_n) = V^{-1} (2l + 1)$.
+
+            \item Из \autoref{eq:psd} на одну моду приходится энергия
+            %
+            \begin{equation*}
+                W^{lp}_n = \hbar\omega^{lp}_n n(\hbar\omega^{lp}_n) N(\omega^{lp}_n) = \frac{\hbar\omega^{lp}_n}{\exp(\flatfrac{\hbar\omega^{lp}_n}{kT}) - 1} N(\omega^{lp}_n) .
+            \end{equation*}
+
+            \item При $T \to \infty$~--- равномерное распределение энергии
+            %
+            \begin{equation*}
+                W^{lp}_n \approx N(\omega^{lp}_n) kT .
+            \end{equation*}
+
+            \item При $T \to 0$~--- формула Вина для отдельно взятой моды
+            %
+            \begin{equation*}
+                W^{lp}_n \approx \hbar\omega^{lp}_n \exp(-\flatfrac{\hbar\omega}{kT}) N(\omega^{lp}_n) .
+            \end{equation*}
+
+        \end{itemize}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Область высоких частот}
+
+        \begin{itemize}\justifying
+
+            \item Собственные частоты расположены плотно. Можно совершить переход к непрерывным величинам.
 
             \item $\dd{N(\omega)}$ из \autoref{eq:psd} можно аппроксимировать $\Delta N(\omega)$, количеством мод на единицу объема в \textit{конечном} спектральном интервале шириной $\Delta \omega$:
             %
