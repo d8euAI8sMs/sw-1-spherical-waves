@@ -35,63 +35,6 @@
     %
     %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            SECTION                                  %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \section[Введение]{Введение и постановка задачи}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Введение}
-
-        \begin{itemize}\justifying
-
-            \item Резонаторы в современной науке имеют важнейшее значение. Одним из ключевых направлений развития физики сегодня является квантовая теория измерений и связанный с ней интерес к манипуляциям с отдельными квантовыми объектами.
-
-            \item В связи с обнаружением сверхузких резонансов рассеяния и возможностью создания на этой основе микрорезонаторов с гигантской добротностью, интерес к этому вопросу усилился многократно.
-
-            \item Анализ различных характеристик резонаторов и путей диссипации энергии в них является задачей, требующей особого внимания.
-
-        \end{itemize}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Оптический микрорезонатор с МШГ}
-
-        \begin{figure}[h]
-            \centering
-            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{spherical_resonator}
-            \caption[]{Оптический сферический микрорезонатор на ножке рядом с возбуждающей призмой, в которой видно его отражение. Диаметр около $570$ мкм, добротность $> 10^9$. Физический факультет МГУ \cite{microresonators}}
-            \label{fig:spherical_resonator}
-        \end{figure}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %                            FRAME                                    %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %
@@ -103,10 +46,10 @@
         \textbf{Цели работы}:
         %
         \begin{itemize}\justifying
-            \item \textbf{Описание электромагнитного поля внутри резонатора}.
+            \item \textbf{Описание электромагнитного поля внутри сферического резонатора}.
                 Применен подход, в основе которого лежат векторы Киллинга объемлющего пространства.
-            \item \textbf{Описание спектральной плотности запасенной в резонаторе энергии}.
-                Численно получена спектральная кривая, ложащаяся на планковскую.
+            \item \textbf{Описание энергии электромагнитного поля в сферическом резонаторе}.
+                Энергетический спектр дискретен. Важен вклад конкретных мод. Переход к планковскому спектру возможен лишь при больших частотах.
         \end{itemize}
 
         \textbf{Физическая модель резонатора}:
@@ -160,101 +103,21 @@
     %
     %
 
-    \begin{frame}\frametitle{Операторный подход}
-
-        Операторный вид волнового уравнения позволяет эффективно применить теорию операторов.
+    \begin{frame}\frametitle{Операторы вращений}
 
         \begin{itemize}\justifying
 
-            \item $\Op{D}_1$, $\Op{D}_2$~--- дифференциальные операторы.
+            \item Поле Киллинга~--- векторное поле, сдвиг по которому (Ли-вариация, оператор Киллинга) не изменяет метрический тензор.
 
-            \item Если $\qty[\Op{D}_1, \Op{D}_2] \tau = (\Op{D}_1\Op{D}_2 - \Op{D}_2\Op{D}_1) \tau = 0$, операторы коммутируют.
-
-        \end{itemize}
-
-        \begin{align*}
-            \left. \begin{aligned}
-                \qty[\Op{D}_1, \Op{D}_2] &= 0 \\
-                \Op{D}_1 \tau &= \lambda_1 \tau
-            \end{aligned} \right\}
-            \quad \Longrightarrow \quad &
-            \Op{D}_2 \tau = \lambda_2 \tau
-        \end{align*}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            SECTION                                  %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \section[Методика]{Методика получения сферических мод}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Поля Киллинга евклидова пространства}
-
-        \begin{itemize}\justifying
-
-            \item Поле Киллинга~--- векторное поле, сдвиг по которому (Ли-вариация) не изменяет метрический тензор.
-
-            \item В трехмерном евклидовом пространстве существует шесть полей Киллинга. В декартовых координатах:
-            %
-            \begin{equation*}
-                \V{\xi}_i
-                =
-                \left[
-                    \V{n}_x, \V{n}_y, \V{n}_z,
-                    \V{l}_x, \V{l}_y, \V{l}_z
-                \right]
-                =
-                \begin{bmatrix}
-                    1 & 0 & 0 & 0  & -z & y  \\
-                    0 & 1 & 0 & z  & 0  & -x \\
-                    0 & 0 & 1 & -y & x  & 0
-                \end{bmatrix}
-            \end{equation*}
-            %
-            Первая тройка образует группу движений трансляций, вторая~--- группу движений вращений.
-
-        \end{itemize}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Производные операторы вращений}
-
-        \begin{enumerate}\justifying
             \item Операторы Киллинга коммутируют с оператором Лапласа.
 
-            \item Операторы вращений не коммутируют между собой.
+            \item $\qty{ \V{l}_x, \V{l}_y, \V{l}_z }$~--- поля Киллинга вращений трехмерного евклидова пространства.
 
             \item Оператор $\Op{l}^2 = \Op{l}_x \Op{l}_x + \Op{l}_y \Op{l}_y + \Op{l}_z \Op{l}_z$ коммутирует со всеми операторами вращений.
 
             \item Операторы повышения и понижения, $\Op{l}_{+} = \Op{l}_x - i\Op{l}_y$ и $\Op{l}_{-} = \Op{l}_x + i\Op{l}_y$, также коммутируют с $\Op{l}^2$.
-        \end{enumerate}
+
+        \end{itemize}
 
     \end{frame}
 
@@ -272,26 +135,19 @@
 
         Рассмотрим некоторую собственную для $\Op{l}^2$ и $\Op{l}_z$ моду $h_{l,m}$:
         %
-        \begin{equation*}\begin{gathered}
-            \Op{l}^2 h_{l,m} = - l (l + 1) h_{l,m} ; \quad
-            \Op{l}_z h_{l,m} = i m h_{l,m} .
-        \end{gathered}\end{equation*}
+        \begin{alignat*}{3}
+            \Op{l}^2 h_{l,m} &= &{}- l (l + 1) &\ h_{l,m} , \\
+            \Op{l}_z h_{l,m} &= &{}i m         &\ h_{l,m} .
+        \end{alignat*}
 
         Можно показать, что
         %
-        \begin{equation*}\begin{gathered}
-            \Op{l}_{+} h_{l,m} = h_{l,m+1} \\
-            \Op{l}_{-} h_{l,m} = h_{l,m-1} ,
-        \end{gathered}\end{equation*}
+        \begin{equation*}\begin{aligned}
+            \Op{l}_{+} h_{l,m} &= h_{l,m+1} , \\
+            \Op{l}_{-} h_{l,m} &= h_{l,m-1}
+        \end{aligned}\end{equation*}
         %
-        и что
-        %
-        \begin{equation*}\begin{gathered}
-            \Op{l}_{+} h_{l,l} = 0 ; \quad
-            \Op{l}_{-} h_{l,-l} = 0 ,
-        \end{gathered}\end{equation*}
-        %
-        т.е. допустимо лишь $- l \le m \le l$.
+        и что $- l \le m \le l$.
 
     \end{frame}
 
@@ -315,12 +171,12 @@
         %
         Кроме того, базовая мода удовлетворяет соотношению:
         %
-        \begin{equation}\label{eq:basemode_eq}
+        \begin{equation}\begin{aligned}\label{eq:basemode_eq}
             \Op{l}^2 h_{l, 0}
-                = \qty( \Op{l}_{+} \Op{l}_{-} + \Op{l}_z^2 - i \Op{l}_z ) h_{l, 0}
-                = \Op{l}_{+} \Op{l}_{-} h_{l, 0}
-                = - l (l + 1) h_{l, 0} .
-        \end{equation}
+                &= \qty( \Op{l}_{+} \Op{l}_{-} + \Op{l}_z^2 - i \Op{l}_z ) h_{l, 0} \\
+                &= \Op{l}_{+} \Op{l}_{-} h_{l, 0}
+                 = - l (l + 1) h_{l, 0} .
+        \end{aligned}\end{equation}
         %
         Но поскольку $\Op{l}_i$ не содержит $r$, уравнение \autoref{eq:basemode_eq} является уравнением только на $h_{l, 0}$ как функцию $\theta$.
 
@@ -361,18 +217,6 @@
     %
     %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            SECTION                                  %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \section[Моды]{Нахождение векторных мод электромагнитного поля}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %                            FRAME                                    %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %
@@ -403,118 +247,9 @@
     %
     %
 
-    \begin{frame}\frametitle{Векторные угловые моды~--- получение}
+    \begin{frame}\frametitle{Векторные моды}
 
-        Операторы Киллинга применительно к векторным полям:
-        %
-        \begin{equation*}\label{eq:killing_operator}
-            \Op{\xi} a^k
-                \equiv \delta_\xi a^k
-                = \xi^c \pdv{a^k}{x^c} - a^c \pdv{\xi^k}{x^c} .
-        \end{equation*}
-
-        Уравнение \autoref{eq:basemode_eq} с подстановкой $E^\varphi(r,\theta) = \csc(\theta) f(r) f(\theta)$ в конечном виде преобразуется в
-        %
-        \begin{equation*}
-            (l^2 + l - \csc^2(\theta)) f(\theta)
-            + \cot(\theta) f'(\theta)
-            + f''(\theta) = 0
-        \end{equation*}
-        %
-        Отсюда
-        %
-        \begin{equation}\label{eq:angle_modes_vect}
-            E^\varphi(r,\theta) = f(r) \csc(\theta) P^1_l(\cos\theta) .
-        \end{equation}
-        %
-        Здесь $P^1_l$~--- присоединенные полиномы Лежандра первого рода, функция $f(r)$~--- пока неизвестная радиальная часть.
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Векторные угловые моды}
-
-        \begin{figure}[h]
-            \centering
-            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{angle_modes_vect_ii}
-            \caption[]{Векторные угловые моды для нескольких $l$ (изображена плотность энергии)}
-            \label{fig:angle_modes_vect_ii}
-        \end{figure}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Векторные радиальные моды~--- получение}
-
-        Уравнение \autoref{eq:wave_equation} при подстановке в него \autoref{eq:angle_modes_vect} преобразуется к виду
-        %
-        \begin{equation*}
-            - \qty(-2 + l + l^2 - \lambda r^2) f(r) +
-            4 r f'(r) + r^2 f''(r) = 0 .
-        \end{equation*}
-        %
-        Его решение:
-        %
-        \begin{equation*}
-            f(r) = \frac{S_l(\sqrt\lambda r)}{r^2} .
-        \end{equation*}
-        %
-        Здесь $S_l$~--- функция Риккати-Бесселя первого рода.
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Векторные радиальные моды}
-
-        \begin{figure}[h]
-            \centering
-            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{radial_modes_vect_ii}
-            \caption[]{Векторные радиальные моды для нескольких $l$}
-            \label{fig:radial_modes_vect_ii}
-        \end{figure}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Векторные радиальные моды~--- окончание}
-
-        Итак, мы окончательно получили базовую моду $\vb{E}_{TE}$:
+        Опуская математические выкладки, запишем вид $\vb{E}_{TE}$:
         %
         \begin{equation}\label{eq:ete}
             \vb{E}_{TE} = \begin{pmatrix}
@@ -522,7 +257,7 @@
             \end{pmatrix} .
         \end{equation}
         %
-        Применением ротора к ней получим $\vb{E}_{TH}$:
+        Применением ротора к \autoref{eq:ete} получим $\vb{E}_{TH}$:
         %
         \begin{equation}\label{eq:eth}
             \vb{E}_{TH} = \begin{pmatrix}
@@ -544,19 +279,21 @@
     %
     %
 
-    \begin{frame}\frametitle{Учет граничных условий}
+    \begin{frame}
 
-        \begin{itemize}\justifying
-            \item Поверхность резонатора~--- идеальный проводник.
-
-            \item В силу этого $E^\varphi = E^\theta = 0$ при $r = R$.
-
-            \item Отсюда из \autoref{eq:ete} и \autoref{eq:eth} получим $S_l(\sqrt\lambda R) = 0$ для $TE$-поляризации и $S_l'(\sqrt\lambda R) = 0$ для $TH$-поляризации. В силу осциллирующего характера функций $S_l$ и $S'_l$ решений $\lambda_n$ бесконечно много.
-
-            \item $\sqrt\lambda = \flatfrac{\omega}{v}$, значит из граничных условий получим спектр собственных частот резонатора $\omega^{lp}_n$ ($p$~--- тип поляризации, $TH$ или $TE$).
-
-            \item $\omega^{lp}_n$-й собственной частоте соответствует $2l + 1$ мод (одна базовая с $m = 0$ и $2l$ производных с $m = \pm 1, \pm 2, \dots, \pm l$).
-        \end{itemize}
+        \begin{figure}[h]
+            \centering
+            %
+            \subfloat[][]{%
+                \label{fig:angle_modes_vect_ii}%
+                \includegraphics[width=0.5\textwidth]{angle_modes_vect_ii}}%
+            %
+            \subfloat[][]{%
+                \label{fig:radial_modes_vect_ii}%
+                \includegraphics[width=0.5\textwidth]{radial_modes_vect_ii}}%
+            %
+            \caption[]{Векторные угловые (изображена плотность энергии) и радиальные моды для нескольких $l$}
+        \end{figure}
 
     \end{frame}
 
@@ -564,13 +301,27 @@
     %
     %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            SECTION                                  %
+    %                            FRAME                                    %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %
     %
     %
 
-    \section[СПЭ]{Спектральная плотность энергии}
+    \begin{frame}\frametitle{Учет граничных условий}
+
+        \begin{itemize}\justifying
+            \item Поверхность резонатора~--- идеальный проводник.
+
+            \item В силу этого $E^\varphi = E^\theta = 0$ при $r = R$.
+
+            \item Отсюда из \autoref{eq:ete} и \autoref{eq:eth} радиальные функции должны обращаться в нуль при $r = R$.
+
+            \item Таким образом, из граничных условий получим спектр собственных частот резонатора $\omega^{lp}_n$ ($p$~--- тип поляризации, $TH$ или $TE$).
+
+            \item $\omega^{lp}_n$-й собственной частоте соответствует $2l + 1$ мод (одна базовая с $m = 0$ и $2l$ производных с $m = \pm 1, \pm 2, \dots, \pm l$).
+        \end{itemize}
+
+    \end{frame}
 
     %
     %
@@ -585,7 +336,6 @@
     \begin{frame}\frametitle{Спектральная плотность энергии}
 
         \begin{itemize}\justifying
-            \item Применим методы статистической физики.
 
             \item По определению спектральной плотности энергии
             %
@@ -598,8 +348,6 @@
             \begin{equation}\label{eq:n_of_eps}
                 n(\varepsilon) = \frac{1}{\exp(\flatfrac{\varepsilon}{kT}) - 1} .
             \end{equation}
-
-            \item Для получения $u(\omega)$ необходимо лишь знать вид $\dv*{N(\omega)}{\omega}$.
 
         \end{itemize}
 
@@ -634,31 +382,7 @@
                 }{\exp(\flatfrac{\hbar\omega}{kT}) - 1} .
             \end{equation}
 
-        \end{itemize}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Спектральная плотность энергии}
-
-        \begin{itemize}\justifying
-
-            \item \autoref{eq:dN_of_eps_cont}~--- асимптотическая формула (точна при больших $\omega$).
-
-            \item Нами был найден точный дискретный спектр собственных мод и собственных частот резонатора.
-
-            \item Мы можем показать, что в области высоких частот действительно имеет место \autoref{eq:dN_of_eps_cont}.
-
-            \item \textbf{Мы можем указать на расхождения с \autoref{eq:dN_of_eps_cont} в области низких частот.}
+            \item В сферическом резонаторе $N(\omega^{lp}_n) = V^{-1} (2l + 1)$.
 
         \end{itemize}
 
@@ -674,16 +398,13 @@
     %
     %
 
-    \begin{frame}\frametitle{Энергия при различных температурах}
+    \begin{frame}\frametitle{Энергетический спектр}
 
         \begin{itemize}\justifying
-
-            \item $l$-я мода $2l + 1$ раз вырождена по энергии, следовательно число мод (на единицу объема резонатора) с данной собственной частотой $N(\omega^{lp}_n) = V^{-1} (2l + 1)$.
-
-            \item Из \autoref{eq:psd} на одну моду приходится энергия
+            \item Интегральная энергия складывается из:
             %
             \begin{equation*}
-                W^{lp}_n = \hbar\omega^{lp}_n n(\hbar\omega^{lp}_n) N(\omega^{lp}_n) = \frac{\hbar\omega^{lp}_n}{\exp(\flatfrac{\hbar\omega^{lp}_n}{kT}) - 1} N(\omega^{lp}_n) .
+                W = \int u(\omega) \dd{\omega} = \sum \hbar\omega_n\ n(\hbar\omega_n) N(\omega_n) = \sum W_n .
             \end{equation*}
 
             \item При $T \to \infty$~--- равномерное распределение энергии
@@ -696,123 +417,6 @@
             %
             \begin{equation*}
                 W^{lp}_n \approx \hbar\omega^{lp}_n \exp(-\flatfrac{\hbar\omega}{kT}) N(\omega^{lp}_n) .
-            \end{equation*}
-
-        \end{itemize}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Область высоких частот}
-
-        \begin{itemize}\justifying
-
-            \item Собственные частоты расположены плотно. Можно совершить переход к непрерывным величинам.
-
-            \item $\dd{N(\omega)}$ из \autoref{eq:psd} можно аппроксимировать $\Delta N(\omega)$, количеством мод на единицу объема в \textit{конечном} спектральном интервале шириной $\Delta \omega$:
-            %
-            \begin{equation*}
-                \Delta N(\omega) = \sum\limits_{
-                    \qty|\omega - \omega_n| < \Delta\omega/2
-                } N(\omega_n)
-            \end{equation*}
-
-            \item Деля $\Delta N(\omega)$ на объем резонатора $V = \flatfrac{4}{3} \pi R^3$, заменяя в \autoref{eq:psd} $\dd{\omega}$ на $\Delta \omega$ и $\dd{N(\omega)}$ на $\Delta N(\omega)$, и используя \autoref{eq:n_of_eps} получим асимптотическую формулу Планка в дискретном виде.
-
-        \end{itemize}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}
-
-        \begin{figure}[h]
-            \centering
-            %
-            \subfloat[][]{%
-                \label{fig:n_full}%
-                \includegraphics[width=0.45\textwidth]{n_full}}%
-            \hspace{8pt}%
-            %
-            \subfloat[][]{%
-                \label{fig:dndx_mag}%
-                \includegraphics[width=0.45\textwidth]{dndx_mag}}%
-            \hspace{8pt}%
-            %
-            \caption[]{$N(x_n)$ и $\flatfrac{\Delta N}{\Delta x}$ вблизи нуля, $x = \flatfrac{\omega}{v} R$}
-        \end{figure}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}
-
-        \begin{figure}[h]
-            \centering
-            %
-            \subfloat[][]{%
-                \label{fig:dndx}%
-                \includegraphics[width=0.45\textwidth]{dndx}}%
-            \hspace{8pt}%
-            %
-            \subfloat[][]{%
-                \label{fig:plank}%
-                \includegraphics[width=0.45\textwidth]{plank}}%
-            \hspace{8pt}%
-            %
-            \caption[]{$\flatfrac{\Delta N}{\Delta x}$ и $u(x)$ в б\'{о}льшем интервале частот, $x = \flatfrac{\omega}{v} R$}
-        \end{figure}
-
-    \end{frame}
-
-    %
-    %
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            FRAME                                    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %
-    %
-
-    \begin{frame}\frametitle{Область низких частот}
-
-        \begin{itemize}\justifying
-            \item В области $kT \sim \hbar\omega_{min}$ нельзя считать спектр (макроскопически) непрерывным.
-
-            \item Практически при $T = 300K$ условие $kT \sim \hbar\omega_{min}$ реализуется, если характерный размер резонатора порядка десятков микрон.
-
-            \item Плотность энергии дискретна. Интегральная энергия складывается из:
-            %
-            \begin{equation*}
-                W = \int u(\omega) \dd{\omega} = \sum \hbar\omega_n\ n(\hbar\omega_n) N(\omega_n) = \sum W_n .
             \end{equation*}
 
         \end{itemize}
@@ -845,13 +449,35 @@
     %
     %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %                            SECTION                                  %
+    %                            FRAME                                    %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %
     %
     %
 
-    \section{Заключение}
+    \begin{frame}\frametitle{Область высоких частот}
+
+        Собственные частоты расположены плотно. Можно совершить переход к непрерывным величинам, заменяя $\dd{N(\omega)}$ на $\Delta N(\omega)$.
+
+        \begin{figure}[h]
+            \centering
+            %
+            \subfloat[][]{%
+                \label{fig:n_full}%
+                \includegraphics[width=0.33\textwidth]{n_full}}%
+            %
+            \subfloat[][]{%
+                \label{fig:dndx}%
+                \includegraphics[width=0.33\textwidth]{dndx}}%
+            %
+            \subfloat[][]{%
+                \label{fig:plank}%
+                \includegraphics[width=0.33\textwidth]{plank}}%
+            %
+            \caption[]{\subref{fig:n_full} $N(x_n)$, \subref{fig:dndx} $\flatfrac{\Delta N}{\Delta x}$ (синим, точки) и $\dv*{N}{x}$ (красным), \subref{fig:plank} кривая планка, построенная на $\flatfrac{\Delta N}{\Delta x}$ (синим, точки) и на $\dv*{N}{x}$ (красным). Величина $x = \flatfrac{\omega}{v} R$}
+        \end{figure}
+
+    \end{frame}
 
     %
     %
@@ -872,9 +498,9 @@
 
             \item Получен вид скалярных и векторных сферических мод.
 
-            \item Построена кривая спектральной плотности запасенной в резонаторе энергии.
+            \item Рассмотрен энергетический спектр электромагнитного поля в резонаторе при различных температурах.
 
-            \item Отдельно рассмотрена область низких частот.
+            \item Совершен асимптотический переход к планковскому спектру.
         \end{itemize}
 
         Все поставленные цели были достигнуты.
