@@ -46,9 +46,9 @@
         \textbf{Цели работы}:
         %
         \begin{itemize}\justifying
-            \item \textbf{Описание электромагнитного поля внутри сферического резонатора}.
+            \item \textbf{Описание теплового излучения внутри сферического резонатора}.
                 Применен подход, в основе которого лежат векторы Киллинга объемлющего пространства.
-            \item \textbf{Описание энергии электромагнитного поля в сферическом резонаторе}.
+            \item \textbf{Описание энергии теплового излучения в сферическом резонаторе}.
                 Энергетический спектр дискретен. Важен вклад конкретных мод. Переход к планковскому спектру возможен лишь при больших частотах.
         \end{itemize}
 
@@ -343,7 +343,7 @@
                 u(\omega) \dd{\omega} = \hbar\omega\ n(\hbar\omega) \dd{N(\omega)} ,
             \end{equation}
 
-            \item Распределение Бозе-Эйнштейна~--- среднее число фотонов с данной энергией $\varepsilon = \hbar\omega$:
+            \item Распределение Бозе-Эйнштейна~--- среднее число фотонов с данной энергией $\varepsilon = \hbar\omega$ в каждой моде:
             %
             \begin{equation}\label{eq:n_of_eps}
                 n(\varepsilon) = \frac{1}{\exp(\flatfrac{\varepsilon}{kT}) - 1} .
@@ -382,7 +382,11 @@
                 }{\exp(\flatfrac{\hbar\omega}{kT}) - 1} .
             \end{equation}
 
-            \item В сферическом резонаторе $N(\omega^{lp}_n) = V^{-1} (2l + 1)$.
+            \item В сферическом резонаторе спектр дискретный,
+            %
+            \begin{equation*}
+                N(\omega^{lp}_n) = V^{-1} (2l + 1) .
+            \end{equation*}
 
         \end{itemize}
 
@@ -416,7 +420,7 @@
             \item При $T \to 0$~--- формула Вина для отдельно взятой моды
             %
             \begin{equation*}
-                W^{lp}_n \approx \hbar\omega^{lp}_n \exp(-\flatfrac{\hbar\omega}{kT}) N(\omega^{lp}_n) .
+                W^{lp}_n \approx \hbar\omega^{lp}_n \exp(-\flatfrac{\hbar\omega^{lp}_n}{kT}) N(\omega^{lp}_n) .
             \end{equation*}
 
         \end{itemize}
