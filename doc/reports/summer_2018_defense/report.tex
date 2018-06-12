@@ -1,0 +1,55 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../../lib/doc/pkg/common}
+\input{../../../lib/doc/math/operators}
+
+\titlelabel{\thetitle. }
+\patchcmd{\appendices}{\quad}{. }{}{}
+
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+    \input{title}
+
+    \tableofcontents
+
+    \newpage
+
+    \includedoc{.}{../../fragments/contents-intro}
+
+    \section{Постановка задачи}
+    \includedoc{../../fragments/spherical_resonators}{contents}
+
+    \section{Математическое введение}
+    \includedoc{../../fragments/math}{contents}
+
+    \section{Нахождение сферических мод}
+    \includedoc{../../fragments/spherical_modes}{contents}
+
+    \section{Термодинамика сферических резонаторов}
+    \includedoc{../../fragments/thermodynamics}{contents}
+
+    \includedoc{.}{../../fragments/contents-outro}
+
+    \clearpage
+
+    \begin{appendices}
+        \includedoc{../../fragments/thermodynamics}{contents-appendix}
+    \end{appendices}
+
+    \clearpage
+
+    \nocite{*}
+    \bibliographystyle{../../../lib/doc/bib/utf8gost705s}
+    \bibliography{../../../lib/doc/bib/math,../../../lib/doc/bib/resonators,../../../lib/doc/bib/physics}
+
+\end{document}
