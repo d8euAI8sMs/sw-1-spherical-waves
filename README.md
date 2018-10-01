@@ -17,7 +17,7 @@
 Клонированием данного репозитория:
 
 ```sh
-git clone https://github.com/d8euAI8sMs/sw-1-spherical-waves.git
+git clone --recurse-submodules https://github.com/d8euAI8sMs/sw-1-spherical-waves.git
 ```
 
 Как часть репозитория `learning`:
